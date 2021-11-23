@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS msypace_2_db;
+CREATE DATABASE myspace_2_db;
