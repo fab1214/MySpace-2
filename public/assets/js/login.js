@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 async function signupFormHandler(event) {
     event.preventDefault();
   
@@ -28,4 +30,28 @@ async function signupFormHandler(event) {
     }
 }
 
+async function login(event) {
+  event.preventDefault();
+  const emailLogin = document.querySelector('#email-login').value.trim();
+  const passwordLogin = document.querySelector('#password-login').value.trim();
+  if (email && password){
+
+    const response = await fetch('/api/users/login', {
+      method: 'post',
+      body: JSON.stringify({
+        emailLogin,
+        passwordLogin
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok) {
+      console.log("worked???")
+      document.location.replace('http://github.com')
+    }
+    else {
+      alert(response.statusText)
+    }
+  }
+}
   document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', login);
