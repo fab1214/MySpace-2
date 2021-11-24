@@ -33,11 +33,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-<<<<<<< HEAD
-    background-position: 80%;
-=======
     backgrround-position: 80%;
->>>>>>> profile-page
     z-index: 9999;
 }
 .header h1{
@@ -73,15 +69,15 @@ header nav ul li a {
   }
   
 
-.col-4{
-    /* background-color: green;
-    color:green; */
+/* .col-4{
+    background-color: green;
+    color:green;
     
 }
 .col-8{
-    /* background-color: blue;
-    color:blue; */
-}
+    background-color: blue;
+    color:blue;
+} */
 
 .section {
     background-color: var(--lightblue);
@@ -92,13 +88,42 @@ header nav ul li a {
 .input-section {
     background-color: var(--skyblue);
     padding: 25px;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+    
+}
+.about-section {
+    background-color: var(--skyblue);
+    padding: 25px;
+    margin-top: 5%;
+    border: 1px solid grey;
+    
+}
+.prof-pic-section {
+    background-color: var(--skyblue);
+    padding: 25px;
+    margin-top: 10%;
+    border: 1px solid grey;
+    
+}
+.post-section {
+    background-color: var(--skyblue);
+    padding: 25px;
+    margin-top: 5%;
+    border: 1px solid grey;
+    padding-bottom: 1%;
+    
+}
+.centerText {
+    text-align: center;
+}
+.profPic{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    
 }
 
-=======
-    
-}
+
 .about-section {
     background-color: var(--skyblue);
     padding: 25px;
@@ -130,42 +155,7 @@ header nav ul li a {
     object-fit: cover;
     
 }
->>>>>>> origin/profile-page
-=======
-    
-}
-.about-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 5%;
-    border: 1px solid grey;
-    
-}
-.prof-pic-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 10%;
-    border: 1px solid grey;
-    
-}
-.post-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 5%;
-    border: 1px solid grey;
-    padding-bottom: 1%;
-    
-}
-.centerText {
-    text-align: center;
-}
-.profPic{
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    
-}
->>>>>>> profile-page
+
 .input-box {
     width: 100%;
     padding:10px;
@@ -178,11 +168,7 @@ header nav ul li a {
     color:white;
     width: 100%;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> profile-page
+
 .smlbtn{
     color: black;
     text-decoration: none;
@@ -190,10 +176,6 @@ header nav ul li a {
 .smlbtn a:hover{
     color: green;
 }
-<<<<<<< HEAD
->>>>>>> origin/profile-page
-=======
->>>>>>> profile-page
 
 .green {
     background-color: var(--green);
@@ -235,11 +217,7 @@ header nav ul li a {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> profile-page
+
 }
 
 .img {
@@ -248,8 +226,5 @@ header nav ul li a {
     
     object-fit: cover;
     border-radius:50%;
-<<<<<<< HEAD
->>>>>>> origin/profile-page
-=======
->>>>>>> profile-page
+
 }
