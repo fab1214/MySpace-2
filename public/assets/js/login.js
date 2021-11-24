@@ -23,7 +23,7 @@ async function signupFormHandler(event) {
       });
   
       if (response.ok) {
-        window.location.replace('http://localhost:3001/');
+        window.location.replace('http://github.com');
       } else {
         alert(response.statusText);
       }
@@ -46,7 +46,7 @@ async function login(event) {
     });
     if(response.ok) {
       console.log("worked???")
-      document.location.replace('http://github.com')
+      window.location.replace('http://github.com')
     }
     else {
       alert(response.statusText)
