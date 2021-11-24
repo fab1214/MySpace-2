@@ -88,10 +88,6 @@ header nav ul li a {
 .input-section {
     background-color: var(--skyblue);
     padding: 25px;
-<<<<<<< HEAD
-}
-
-=======
     
 }
 .about-section {
@@ -125,7 +121,6 @@ header nav ul li a {
     object-fit: cover;
     
 }
->>>>>>> origin/profile-page
 .input-box {
     width: 100%;
     padding:10px;
@@ -138,8 +133,6 @@ header nav ul li a {
     color:white;
     width: 100%;
 }
-<<<<<<< HEAD
-=======
 .smlbtn{
     color: black;
     text-decoration: none;
@@ -147,7 +140,6 @@ header nav ul li a {
 .smlbtn a:hover{
     color: green;
 }
->>>>>>> origin/profile-page
 
 .green {
     background-color: var(--green);
@@ -189,8 +181,6 @@ header nav ul li a {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-=======
 }
 
 .img {
@@ -199,5 +189,4 @@ header nav ul li a {
     
     object-fit: cover;
     border-radius:50%;
->>>>>>> origin/profile-page
 }
