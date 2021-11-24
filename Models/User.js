@@ -23,7 +23,7 @@ User.init(
       allowNull: false,
       unique: true,
       validate: {
-        lens: [1, 20],
+        len: [1, 20],
       },
     },
     email: {
@@ -38,7 +38,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        lens: [4],
+        len: [4],
       },
     },
   },
@@ -58,7 +58,7 @@ User.init(
     // pass in our imported sequelize connection (the direct connection to our database)
     sequelize,
     // automatically create createdAt/updatedAt timestamp fields
-    timestamps: true,
+    timestamps: false,
     // don't pluralize name of database table
     freezeTableName: true,
     // use underscores instead of camel-casing (i.e. `post_text` and not `postText`)

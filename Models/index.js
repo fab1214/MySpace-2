@@ -1,1 +1,3 @@
-//establish model relationships here
+const User = require('./User');
+
+module.exports = { User };
