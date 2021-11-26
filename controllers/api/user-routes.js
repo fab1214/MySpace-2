@@ -1,12 +1,19 @@
 //user routes (get, post, put, delete)
 const router = require("express").Router();
-const { User } = require("../../models/");
+const { User, Post } = require("../../models/");
 
 //GET route - All users
 router.get("/", (req, res) => {
   
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+      },
+    ],
+
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -21,13 +28,13 @@ router.get("/:id", (req, res) => {
   User.findOne({
     //exlcude showing password when retriving user data
     attributes: { exclude: ["password"] },
-    //include the Post id, title, url, and create data
-    // include: [
-    //   {
-    //     model: Post,
-    //     attributes: ["id", "title", "body_text", "created_at"],
-    //   },
-    // ],
+    // include the Post id, title, url, and create data
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+      },
+    ],
     where: {
       id: req.params.id,
     },
