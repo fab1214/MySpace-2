@@ -20,23 +20,32 @@
         </div>
             
         <div class="col-8">
-            <form class="post-section centerText post-form">
-                <div class="row">
-                    <h3>What's poppin?</h3>
-                </div>
-                <div class="row margin">
-                    <textarea id="post_text" cols="30" rows="5" placeholder="Tell us"></textarea>
-                </div>
-                <div class="row margin">
-                    <button class="btn" type="submit">Post</button>
-                </div>
+          <form class="new-post-form"> 
+                    <div class="post-section centerText">
+                        <div class="row">
+                        <h3>What's poppin?</h3>
+                        </div>
+                        <div class="row margin">
+                            <input type="text" id="post_title" cols="30" rows="5" placeholder="Title"></input>
+                        </div>
+                        <div class="row margin">
+                            <input type="text" id="post_body" cols="30" rows="5" placeholder="Tell Us"></input>
+                        </div>
+                    
+                        <div class="row margin">
+                            <button type='submit' class="btn">Post</button>
+                            <br>
+                        </div>
             </form>
-                
+
+</div>
+
+
             <div class="about-section centerText">
                 <h4> About Me</h4>
                 <div class="about-section centerText">
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, libero animi? Necessitatibus totam tenetur exercitationem dolores error nostrum unde eius expedita nisi! Ex nam architecto odit, dolorem soluta magnam dignissimos.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
                     </p>
                 </div>
             </div>
@@ -45,22 +54,20 @@
                 <h4> Posts</h4>
                 <ol>
                     {{#each posts as |post|}}
-                        <li>
+                        <ul>
                             <article>
+                                <h4> {{post.title}} </h4>
+                                <div class = "post-section">
                                     <p>
-                                        {{post.post_text}}
-                                        <br>
-                                        {{post.createdAt}}
-                                        <br>
-                                        {{post.updatedAt}}
+                                        {{post.body}}
                                     </p>   
+                                    </div>
                             </article>
-                        </li>
+                        </ul>
                     {{/each}}
                 </ol>
             </div>
         </div>
     </div>
-</div>
 
-<script src="/assets/js/post.js"></script>
+    <script src="/assets/js/post.js"></script>

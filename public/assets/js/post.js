@@ -1,26 +1,27 @@
-async function postFormHandler(event) {
+async function newFormHandler(event) {
     event.preventDefault();
-
-    const post_text = document.querySelector('#post_text').value.trim();
-    // Hello
-
-    if (post_text) {
-        const response = await fetch('/api/posts', {
-            method: 'post',
-            body: JSON.stringify({
-                post_text
-
-                // post_text: "Hello"
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert(response.statusText);
-        }
+  
+    const title = document.querySelector('#post_title').value;
+    const body = document.querySelector('#post_body').value;
+  
+    const response = await fetch(`/api/posts`, {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        body
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  
+    if (response.ok) {
+        console.log('post added');
+        document.location.replace('/');
+    } else {
+      alert(response.statusText);
     }
-}
-
-document.querySelector('.post-form').addEventListener('submit', postFormHandler);
+  }
+  
+  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  
