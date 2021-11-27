@@ -1,6 +1,6 @@
 //user routes (get, post, put, delete)
 const router = require("express").Router();
-const { User, Post } = require("../../models/");
+const { User, Post } = require("../../Models/");
 
 //GET route - All users
 router.get("/", (req, res) => {
