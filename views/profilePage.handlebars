@@ -1,28 +1,26 @@
 <div class='container'>
-        <div class='row'>
-            <div class="col-4">
-                <div class="prof-pic-section centerText">
-                    <img class="profPic" src="/0V6A5256_1.jpg" alt="">
-                </img>
-                    <div class="paragraph">
-                        <a class ="smlbtn" href= "">pics</a>
-                        <a class ="smlbtn" href= "">vids</a>
-                    </div>
-                </div>
-                <div class="about-section centerText">
-                    <h4> Interests</h4>
-                    <div class="about-section centerText">
-                        
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
-                        </p>
-                    </div>
+    <div class='row'>
+        <div class="col-4">
+            <div class="prof-pic-section centerText">
+                <img class="profPic" src="./assets/images/0V6A5256_1.jpg" alt=""></img>
+                <div class="paragraph">
+                    <a class ="smlbtn" href= "">pics</a>
+                    <a class ="smlbtn" href= "">vids</a>
                 </div>
             </div>
 
-
-            <div class="col-8">
-                <form class="new-post-form"> 
+            <div class="about-section centerText">
+                <h4> Interests</h4>
+                <div class="about-section centerText"> 
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
+                    </p>
+                </div>
+            </div>
+        </div>
+            
+        <div class="col-8">
+          <form class="new-post-form"> 
                     <div class="post-section centerText">
                         <div class="row">
                         <h3>What's poppin?</h3>
@@ -38,29 +36,38 @@
                             <button type='submit' class="btn">Post</button>
                             <br>
                         </div>
-                </form>
+            </form>
 
-                    </div>
+</div>
 
-                
+
+            <div class="about-section centerText">
+                <h4> About Me</h4>
                 <div class="about-section centerText">
-                    <h4> About Me</h4>
-                    <div class="about-section centerText">
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, libero animi? Necessitatibus totam tenetur exercitationem dolores error nostrum unde eius expedita nisi! Ex nam architecto odit, dolorem soluta magnam dignissimos.
                     </p>
                 </div>
-                </div>
-                <div class="post-section centerText">
-                    <h4> Posts</h4>
-                    <div class="post-section">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi eaque, itaque corrupti dolor est dolorem reiciendis nemo porro quam minus voluptate quae modi magni vitae nobis at ab, accusantium asperiores!
-                    </p>
-                </div>
-                </div>
+            </div>
+
+            <div class="post-section centerText">
+                <h4> Posts</h4>
+                <ol>
+                    {{#each posts as |post|}}
+                        <ul>
+                            <article>
+                                <h4> {{post.title}} </h4>
+                                <div class = "post-section">
+                                    <p>
+                                        {{post.body}}
+                                    </p>   
+                                    </div>
+                            </article>
+                        </ul>
+                    {{/each}}
+                </ol>
             </div>
         </div>
     </div>
 
-    <script src="/assets/js/new-post.js"></script>
+    <script src="/assets/js/post.js"></script>
