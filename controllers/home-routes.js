@@ -3,17 +3,19 @@ const sequelize = require('../config/connection');
 const { User, Post } = require('../Models')
 // //login route on homepage
 router.get('/', (req, res) => {
-    Post.findAll()
-      .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true}));
-
+    Post.findAll({
+        attributes:['post_text']
+    }).then(postData => {
+        const posts = postData.map(post => post.get({ plain: true }));
         res.render('profilePage', { posts });
-      })
-      .catch(err => {
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
-      })
-});
+    });
+    
+  });
+
 //you have to have a res.render in order to 
 //call it in the res.redirect
 router.get('/feed', (req,res) => {
