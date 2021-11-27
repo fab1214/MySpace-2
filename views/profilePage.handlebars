@@ -43,11 +43,21 @@
 
             <div class="post-section centerText">
                 <h4> Posts</h4>
-                <div class="post-section">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi eaque, itaque corrupti dolor est dolorem reiciendis nemo porro quam minus voluptate quae modi magni vitae nobis at ab, accusantium asperiores!
-                </p>
-                </div>
+                <ol>
+                    {{#each posts as |post|}}
+                        <li>
+                            <article>
+                                    <p>
+                                        {{post.post_text}}
+                                        <br>
+                                        {{post.createdAt}}
+                                        <br>
+                                        {{post.updatedAt}}
+                                    </p>   
+                            </article>
+                        </li>
+                    {{/each}}
+                </ol>
             </div>
         </div>
     </div>
