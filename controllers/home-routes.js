@@ -32,6 +32,8 @@ router.get('/create', (req, res) => {
   res.render('create');
 });
 
+
+// couldn't get this route working right. need another set of eyes on it, or a break lol
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
