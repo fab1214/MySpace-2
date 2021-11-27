@@ -51,19 +51,24 @@
             </div>
 
             <div class="post-section centerText">
-                <h4> Posts</h4>
+                <h2> Posts</h2>
                 <ol>
                     {{#each posts as |post|}}
-                        <ul>
-                            <article>
-                                <h4> {{post.title}} </h4>
-                                <div class = "post-section">
+                        <ul class="postUl">
+                            <article class = 'posty'>
+                                <h4 class = "PT"> {{post.title}} </h4>
+                                <div class = "posts">
                                     <p>
                                         {{post.body}}
-                                    </p>   
+                                    </p> 
+                                      
+                                    
                                     </div>
+                                    <button type='submit' class="btn red"> Delete </button>
                             </article>
+                            
                         </ul>
+                        
                     {{/each}}
                 </ol>
             </div>
@@ -71,3 +76,4 @@
     </div>
 
     <script src="/assets/js/post.js"></script>
+ <script src="/assets/js/delete.js"></script>

@@ -69,15 +69,7 @@ header nav ul li a {
   }
   
 
-/* .col-4{
-    background-color: green;
-    color:green;
-    
-}
-.col-8{
-    background-color: blue;
-    color:blue;
-} */
+
 
 .section {
     background-color: var(--lightblue);
@@ -122,7 +114,25 @@ header nav ul li a {
     object-fit: cover;
     
 }
-
+.PT {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2%;
+}
+.posts{
+    padding: 2%;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.postUl{
+    list-style: none;
+    padding-left: 0;
+    padding-right: 4.5%;
+    margin-left: 0%;
+}
 
 .about-section {
     background-color: var(--skyblue);
@@ -166,7 +176,7 @@ header nav ul li a {
 .btn {
     background-color: var(--blue);
     color:white;
-    width: 100%;
+    
 }
 
 .smlbtn{
@@ -179,6 +189,13 @@ header nav ul li a {
 
 .green {
     background-color: var(--green);
+    width: 100%;
+}
+
+.red {
+    background-color: var(--blue);
+    color:white;
+    background-color: red;
 }
 
 .btn:hover {
