@@ -33,7 +33,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    backgrround-position: 80%;
+    /*background-position: 80%;*/
     z-index: 9999;
 }
 .header h1{
@@ -154,6 +154,7 @@ header nav ul li a {
     margin-top: 5%;
     border: 1px solid grey;
     padding-bottom: 1%;
+    list-style: none;
     
 }
 .centerText {
@@ -244,4 +245,47 @@ header nav ul li a {
     object-fit: cover;
     border-radius:50%;
 
+}
+
+ol {
+    list-style-type: none;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.post_area {
+    width: 100%;
+    background-color: var(--lightblue);
+    padding: 25px;
+    margin-top: 5%;
+    border: 1px solid grey;
+    padding-bottom: 1%;
+}
+
+.post_section {
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--skyblue);
+}
+
+.post_username {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--darkblue);
+    border-bottom: 1px solid var(--grey);
+}
+
+.post_title {
+    font-weight: bold;
+    color: var(--black);
+}
+
+.post_body {
+    color: var(--grey);
+    text-align: left;
 }

@@ -1,30 +1,60 @@
- <div class="col-8">
-               
-                    <div class="post-section centerText">
-                        <div class="row">
-                        <h3>What's poppin?</h3>
-                        </div>
-                <form class="new-post-form"> 
-                        <div class="row margin">
-                            <input id="post_title" cols="30" rows="5"placeholder="Brand new whip, just hopped in"></input>
-                        </div>
-                        <div class="row margin">
-                            <input id="post_body" cols="30" rows="5"placeholder="I'm sorry"></input>
-                        </div>
-                    
-                        <div class="row margin">
-                            <button type='submit' class="btn">Post</button>
-                            <br>
-                        </div>
-                    </div>
-                </form>
-                  <div class="post-section centerText">
-                    <h4> Posts</h4>
-                    <div class="post-section">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi eaque, itaque corrupti dolor est dolorem reiciendis nemo porro quam minus voluptate quae modi magni vitae nobis at ab, accusantium asperiores!
-                    </p>
-                </div>
-                </div>
+<div class="col-12 flex-center">
+    <div class="post-section centerText">
+        <div class="row">
+            <h3>What's poppin?</h3>
+        </div>
 
-                    <script src="/assets/js/post.js"></script>
+        <form class="new-post-form"> 
+            <div class="row margin">
+                    <input id="post_title" cols="30" rows="5"placeholder="Brand new whip, just hopped in"></input>
+            </div>
+
+            <div class="row margin">
+                <textarea id="post_body" cols="30" rows="5"placeholder="I'm sorry"></textarea>
+            </div>
+
+            <div class="row margin">
+                <button type='submit' class="btn">Post</button>
+                <br>
+            </div>
+        </form>
+
+        <div class="post_area centerText">
+            <h4> Posts</h4>
+            <ol>
+                {{#each posts as |post|}}
+                <li class="post_section">
+                    <div class="row">
+                        <a class="post_username">{{post.username}}</a>
+                    </div>
+
+                    <div class="row">
+                        <p class="post_title">{{post.title}}</p>
+                    </div>
+
+                    <div class="row">
+                        <p class="post_body"> {{post.body}}</p>
+                    </div>
+
+                    <div class="row">
+                        <a>View Comment(s)</a>
+                    </div>
+
+                    <form class="new-comment-form">
+                        <div class="row">
+                            <textarea id="comment_text" cols="30" rows="2"placeholder="Post a comment..."></textarea>
+                        </div>
+
+                        <div class="row">
+                            <button class="btn" id="{{post.id}}" type="submit">Submit</button>
+                        </div>  
+                    </form>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/post.js"></script>
+<script src="/assets/js/comment.js"></script>

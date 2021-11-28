@@ -17,8 +17,27 @@ router.get('/', (req, res) => {
 //you have to have a res.render in order to 
 //call it in the res.redirect
 router.get('/feed', (req, res) => {
-  res.render('feed')
+  Post.findAll({
+    attributes: [
+      'id',
+      'user_id',
+      'title',
+      'body',
+      'createdAt',
+      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username']
+    ]
+  })
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+
+      res.render('feed', { posts })
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 })
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('feed');
@@ -55,6 +74,7 @@ router.get('/post/:id', (req, res) => {
     ]
   })
     .then(dbPostData => {
+      console.log(dbPostData)
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
