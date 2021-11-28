@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { UniqueConstraintError } = require('sequelize/dist');
+const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
 // //login route on homepage
@@ -28,7 +30,7 @@ router.get('/homepage', (req, res) => {
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
-      res.render('profilePage', { posts });
+      res.render('homePage', { posts });
     })
     .catch(err => {
       console.log(err);
@@ -123,6 +125,45 @@ router.get('/post/:id', (req, res) => {
 
       // pass data to template
       res.render('post-view', { post,
+      loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/profile/:id', (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id,
+    },
+
+    attributes: { exclude: ["password"] },
+
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+        include: [
+          {
+            model: Comment,
+          }
+        ]
+      },
+    ],
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const user = dbUserData.get({ plain: true });
+
+      // pass data to template
+      res.render('profilePage', { user,
       loggedIn: req.session.loggedIn });
     })
     .catch(err => {
