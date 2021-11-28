@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/feed');
+      document.location.replace('/homepage');
     } else {
       alert(response.statusText);
     }
