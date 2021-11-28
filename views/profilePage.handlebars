@@ -24,7 +24,7 @@
                 <h4> Interests</h4>
                 <div class="about-section centerText"> 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
+                        {{user.interests}}
                     </p>
                 </div>
             </div>
@@ -34,32 +34,28 @@
                 <h4> About Me</h4>
                 <div class="about-section centerText">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
+                        {{user.about_me}}
                     </p>
                 </div>
         </div>
 
 
-        <div class="post-section centerText">
+        <div class="post_area centerText">
             <h2> Posts</h2>
             <ol>
                 {{#each user.posts as |post|}}
                     <li class="post_section">
-                    <div class="row">
-                        <p class="post_username"></p>
-                    </div>
+                        <div class="row">
+                            <p class="post_title">{{post.title}}</p>
+                        </div>
 
-                    <div class="row">
-                        <p class="post_title">{{post.title}}</p>
-                    </div>
+                        <div class="row">
+                            <p class="post_body"> {{post.body}}</p>
+                        </div>
 
-                    <div class="row">
-                        <p class="post_body"> {{post.body}}</p>
-                    </div>
-
-                    <div class="row">
-                        <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
-                    </div>
+                        <div class="row">
+                            <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
+                        </div>
                     </li>
                 {{/each}}
             </ol>
