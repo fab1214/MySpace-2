@@ -1,5 +1,7 @@
 <div class="container">
+   
   <div class="post_area centerText">
+    <h4>Comments</h4>
     <div class="row post_section">
       <div class="row">
         <a class="post_username">{{post.username}}</a>
@@ -13,9 +15,9 @@
         <p class="post_body"> {{post.body}}</p>
       </div>
     </div>
-
+{{#if loggedIn}}
     <div class="row post_section">
-      <h4>Comments</h4>
+     
       <ol>
       {{#each post.comments as |comment|}}
         <ul>
@@ -38,10 +40,14 @@
         </div>
 
         <div class="row">
+          
           <button class="btn" id="{{post.id}}" type="submit">Submit</button>
+          
         </div>  
       </form>
+     
     </div>
+     {{/if}}
   </div>
 </div>
 

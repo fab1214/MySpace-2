@@ -1,4 +1,5 @@
 <div class="container">
+    {{#if loggedIn}}
     <div class="post-section centerText">
         <div class="row">
             <h3>What's poppin?</h3>
@@ -18,7 +19,7 @@
                 <br>
             </div>
         </form>
-
+{{/if}}
         <div class="post_area centerText">
             <h4> Posts</h4>
             <ol>
@@ -46,4 +47,4 @@
     </div>
 </div>
 
-<script src="/assets/js/post.js"></script>
+<script src="/assets/js/postToFeed.js"></script>
