@@ -58,6 +58,15 @@ router.get('/post/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    attributes: [
+      'id',
+      'user_id',
+      'title',
+      'body',
+      'createdAt',
+      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username']
+    ]
+    /*
     include: [
       {
         model: Comment,
@@ -67,14 +76,15 @@ router.get('/post/:id', (req, res) => {
           attributes: ['username']
         }
       },
+      
       {
         model: User,
         attributes: ['username']
       }
     ]
+    */
   })
     .then(dbPostData => {
-      console.log(dbPostData)
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;

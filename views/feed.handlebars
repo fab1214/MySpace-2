@@ -37,18 +37,8 @@
                     </div>
 
                     <div class="row">
-                        <a>View Comment(s)</a>
+                        <a href="./post/{{post.id}}">View Comment(s)</a>
                     </div>
-
-                    <form class="new-comment-form">
-                        <div class="row">
-                            <textarea id="comment_text" cols="30" rows="2"placeholder="Post a comment..."></textarea>
-                        </div>
-
-                        <div class="row">
-                            <button class="btn" id="{{post.id}}" type="submit">Submit</button>
-                        </div>  
-                    </form>
                 </li>
                 {{/each}}
             </ol>
@@ -57,4 +47,3 @@
 </div>
 
 <script src="/assets/js/post.js"></script>
-<script src="/assets/js/comment.js"></script>

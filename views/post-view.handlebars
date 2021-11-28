@@ -1,14 +1,30 @@
+<div class="col-12 flex-center">
+  <div class="post-section centerText">
+    <div class="post_area centerText">
+      <h4> Posts</h4>
+      <div class="row">
+        <a class="post_username">{{post.username}}</a>
+      </div>
 
+      <div class="row">
+        <p class="post_title">{{post.title}}</p>
+      </div>
 
-<article class="post-section ">
-  <div class="posty">
-    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-    <span>({{post.post_url}})</span>
+      <div class="row">
+        <p class="post_body"> {{post.body}}</p>
+      </div>
+
+      <form class="new-comment-form">
+        <div class="row">
+          <textarea id="comment_text" cols="30" rows="2"placeholder="Post a comment..."></textarea>
+        </div>
+
+        <div class="row">
+          <button class="btn" id="{{post.id}}" type="submit">Submit</button>
+        </div>  
+      </form>
+    </div>
   </div>
-  <div class="meta">
-    {{post.vote_count}} point(s) by {{post.user.username}} on
-    {{post.created_at}}
-    |
-    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-  </div>
-</article>
+</div>
+
+<script src="/assets/js/comment.js"></script>
