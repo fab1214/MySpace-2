@@ -1,4 +1,4 @@
-<div class="col-12 flex-center">
+<div class="container">
     <div class="post-section centerText">
         <div class="row">
             <h3>What's poppin?</h3>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="row">
-                        <a href="./post/{{post.id}}">View Comment(s)</a>
+                        <a href="./post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
                     </div>
                 </li>
                 {{/each}}

@@ -1,7 +1,6 @@
-<div class="col-12 flex-center">
-  <div class="post-section centerText">
-    <div class="post_area centerText">
-      <h4> Posts</h4>
+<div class="container">
+  <div class="post_area centerText">
+    <div class="row post_section">
       <div class="row">
         <a class="post_username">{{post.username}}</a>
       </div>
@@ -13,6 +12,25 @@
       <div class="row">
         <p class="post_body"> {{post.body}}</p>
       </div>
+    </div>
+
+    <div class="row post_section">
+      <h4>Comments</h4>
+      <ol>
+      {{#each post.comments as |comment|}}
+        <ul>
+          <article class="post_area centerText">
+            <div class="row">
+              <a class="post_username">{{comment.username}}</a>
+            </div>
+
+            <div class="row">
+              <p class="post_title">{{comment.comment_text}}</p>
+            </div>
+          </article>
+        </ul>
+      {{/each}}
+      </ol>
 
       <form class="new-comment-form">
         <div class="row">

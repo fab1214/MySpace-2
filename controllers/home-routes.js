@@ -3,7 +3,28 @@ const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
 // //login route on homepage
 router.get('/', (req, res) => {
-  Post.findAll()
+  Post.findAll({
+    attributes: [
+      'id',
+      'user_id',
+      'title',
+      'body',
+      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
+      'createdAt'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: [
+          'id', 
+          'comment_text', 
+          'user_id',
+          [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'comment_username'],
+          'createdAt'
+        ]
+      }
+    ]
+  })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
@@ -25,6 +46,18 @@ router.get('/feed', (req, res) => {
       'body',
       'createdAt',
       [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username']
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: [
+          'id', 
+          'comment_text', 
+          'user_id',
+          [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'comment_username'],
+          'createdAt'
+        ]
+      }
     ]
   })
     .then(dbPostData => {
@@ -63,26 +96,21 @@ router.get('/post/:id', (req, res) => {
       'user_id',
       'title',
       'body',
-      'createdAt',
-      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username']
-    ]
-    /*
+      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
+      'createdAt'
+    ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      
-      {
-        model: User,
-        attributes: ['username']
+        attributes: [
+          'id', 
+          'comment_text', 
+          'user_id',
+          [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'username'],
+          'createdAt'
+        ]
       }
     ]
-    */
   })
     .then(dbPostData => {
       if (!dbPostData) {

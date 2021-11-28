@@ -1,15 +1,29 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User, Post } = require('../../Models');
+const { User, Post, Comment } = require('../../Models');
 
 router.get('/', (req, res) => {
     Post.findAll({
-        include: [
+        attributes: [
+            'id',
+            'user_id',
+            'title',
+            'body',
+            [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
+            'createdAt'
+          ],
+          include: [
             {
-                model: User,
-                attributes: ['username']
+              model: Comment,
+              attributes: [
+                'id', 
+                'comment_text', 
+                'user_id',
+                [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'username'],
+                'createdAt'
+              ]
             }
-        ]
+          ]
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -23,19 +37,27 @@ router.get('/:id', (req,res) => {
     Post.findOne({
         where: {
             id: req.params.id
-        },
-        attributes: [
+          },
+          attributes: [
             'id',
+            'user_id',
             'title',
             'body',
-            'created_at'
-        ],
-        include: [
+            [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
+            'createdAt'
+          ],
+          include: [
             {
-                model: User,
-                attributes: ['username']
+              model: Comment,
+              attributes: [
+                'id', 
+                'comment_text', 
+                'user_id',
+                [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'username'],
+                'createdAt'
+              ]
             }
-        ]
+          ]
     })
     .then(dbPostData => {
         if(!dbPostData){
