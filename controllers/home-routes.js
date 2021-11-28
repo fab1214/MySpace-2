@@ -74,10 +74,7 @@ router.get('/feed', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('feed');
-    return;
-  }
+
 
   res.render('login');
 });

@@ -32,7 +32,7 @@
         </ul>
       {{/each}}
       </ol>
-
+{{#if loggedIn}}
       <form class="new-comment-form">
         <div class="row">
           <textarea id="comment_text" cols="30" rows="2"placeholder="Post a comment..."></textarea>
@@ -44,6 +44,7 @@
           
         </div>  
       </form> 
+      {{/if}}
     </div>
   </div>
 </div>
