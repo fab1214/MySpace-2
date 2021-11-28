@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const { User, Post } = require("../../Models/");
 
+
 //GET route - All users
 router.get("/", (req, res) => {
   
