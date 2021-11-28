@@ -4,38 +4,38 @@ const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
 // //login route on homepage
-router.get('/homepage', (req, res) => {
-  Post.findAll({
-    attributes: [
-      'id',
-      'user_id',
-      'title',
-      'body',
-      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
-      'createdAt'
-    ],
+router.get('/', (req, res) => {
+  User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
+    //exlcude showing password when retriving user data
+    attributes: { exclude: ["password"] },
+    // include the Post id, title, url, and create data
     include: [
       {
-        model: Comment,
-        attributes: [
-          'id', 
-          'comment_text', 
-          'user_id',
-          [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'comment_username'],
-          'createdAt'
-        ]
-      }
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+      },
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No user found with this id' });
+      return;
+    }
 
-      res.render('homePage', { posts });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    })
+    // serialize the data
+    const user = dbUserData.get({ plain: true });
+
+    // pass data to template
+    res.render('homePage', { user,
+    loggedIn: req.session.loggedIn });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 //you have to have a res.render in order to 
 //call it in the res.redirect
@@ -74,7 +74,10 @@ router.get('/feed', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-
+  if (req.session.loggedIn) {
+    res.redirect('feed');
+    return;
+  }
 
   res.render('login');
 });
