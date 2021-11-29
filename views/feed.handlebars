@@ -40,6 +40,7 @@
                     <div class="row">
                         <a href="./post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
                     </div>
+                    <button type="button" class='btn blue' onclick="window.location.href='../post/{{post.id}}';">Edit Post</button>
                 </li>
                 {{/each}}
             </ol>
