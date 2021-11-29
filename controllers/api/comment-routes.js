@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Comment, Post, User } = require('../../Models');
+const withAuth = require('../../utils/auth');
 
 
 //these also aren't working for some reason. anyone want to take a swing?
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth,(req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
         user_id: req.session.user_id,

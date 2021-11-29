@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Post, Comment } = require('../Models')
-// //login route on homepage
-router.get('/', (req, res) => {
+const { User, Post, Comment } = require('../Models');
+const withAuth = require('../utils/auth');
+
+router.get('/', withAuth, (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -37,7 +38,7 @@ router.get('/', (req, res) => {
 });
 //you have to have a res.render in order to 
 //call it in the res.redirect
-router.get('/feed', (req, res) => {
+router.get('/feed', withAuth, (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -86,7 +87,7 @@ router.get('/create', (req, res) => {
 
 
 // couldn't get this route working right. need another set of eyes on it, or a break lol
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
