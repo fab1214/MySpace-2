@@ -11,7 +11,6 @@
 </head>
 
 <body class="position-relative">
-
     <header class="header">
 
         <h1>MySpace 2.0</h1>
@@ -26,11 +25,13 @@
                 <li>
                     <a href="/">Profile</a>
                 </li>
-                
                  <li>
+                     {{#if loggedIn}}
                     <a id = "logout" href="/login">Logout</a>
+                    {{else}}
+                    <a id = "login" href="/login">Login</a>
+                    {{/if}}
                 </li>
-                
             </ul>
         </nav>
     </header>
