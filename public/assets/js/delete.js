@@ -1,5 +1,5 @@
 async function deleteFormHandler(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
@@ -15,4 +15,9 @@ async function deleteFormHandler(event) {
     alert(response.statusText);
   }
 }
-document .querySelector(".delete-post-form").addEventListener("click", deleteFormHandler);
+// document .querySelector(".delete-post-form").addEventListener("click", deleteFormHandler);
+$('.red').on('click', function(){
+  var parent_id = $(this);
+  console.log(parent_id);
+  deleteFormHandler(parent_id);
+ })
