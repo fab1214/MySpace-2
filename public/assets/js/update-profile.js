@@ -1,6 +1,6 @@
 async function newAboutMeHandler(event) {
     event.preventDefault();
-
+    
     const about_me = document.querySelector('#about_me').value.trim();
     const id = document.querySelector('#id');
 
@@ -48,3 +48,8 @@ async function newInterestHandler(event) {
 
 document.querySelector('.about-me-form').addEventListener('submit', newAboutMeHandler);
 document.querySelector('.interests-form').addEventListener('submit', newInterestHandler);
+// $('#aboutBtn').on('click', function(){
+//     var parent_id = $(this);
+//     console.log(parent_id);
+    
+//    })
