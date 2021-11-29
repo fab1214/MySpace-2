@@ -3,8 +3,9 @@ const { UniqueConstraintError } = require('sequelize/dist');
 const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
-// //login route on homepage
-router.get('/', (req, res) => {
+const withAuth = require('../utils/auth');
+
+router.get('/', withAuth, (req, res) => {
   User.findOne({
     where: {
       id: req.session.user_id,
@@ -39,7 +40,7 @@ router.get('/', (req, res) => {
 });
 //you have to have a res.render in order to 
 //call it in the res.redirect
-router.get('/feed', (req, res) => {
+router.get('/feed', withAuth, (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -75,7 +76,7 @@ router.get('/feed', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('feed');
+    res.redirect('homePage');
     return;
   }
 
@@ -88,7 +89,7 @@ router.get('/create', (req, res) => {
 
 
 // couldn't get this route working right. need another set of eyes on it, or a break lol
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
@@ -133,7 +134,7 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-router.get('/profile/:id', (req, res) => {
+router.get('/profile/:id', withAuth, (req, res) => {
   User.findOne({
     where: {
       id: req.params.id,
