@@ -1,43 +1,46 @@
 const router = require('express').Router();
+const { UniqueConstraintError } = require('sequelize/dist');
+const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
-// //login route on homepage
-router.get('/', (req, res) => {
-  Post.findAll({
-    attributes: [
-      'id',
-      'user_id',
-      'title',
-      'body',
-      [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
-      'createdAt'
-    ],
+const withAuth = require('../utils/auth');
+
+router.get('/', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
+    //exlcude showing password when retriving user data
+    attributes: { exclude: ["password"] },
+    // include the Post id, title, url, and create data
     include: [
       {
-        model: Comment,
-        attributes: [
-          'id', 
-          'comment_text', 
-          'user_id',
-          [sequelize.literal('(SELECT username FROM user WHERE user.id = comments.user_id)'), 'comment_username'],
-          'createdAt'
-        ]
-      }
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+      },
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No user found with this id' });
+      return;
+    }
 
-      res.render('profilePage', { posts });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    })
+    // serialize the data
+    const user = dbUserData.get({ plain: true });
+
+    // pass data to template
+    res.render('homePage', { user,
+    loggedIn: req.session.loggedIn });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 //you have to have a res.render in order to 
 //call it in the res.redirect
-router.get('/feed', (req, res) => {
+router.get('/feed', withAuth, (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -73,7 +76,7 @@ router.get('/feed', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('feed');
+    res.redirect('homePage');
     return;
   }
 
@@ -86,7 +89,7 @@ router.get('/create', (req, res) => {
 
 
 // couldn't get this route working right. need another set of eyes on it, or a break lol
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
@@ -123,6 +126,45 @@ router.get('/post/:id', (req, res) => {
 
       // pass data to template
       res.render('post-view', { post,
+      loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/profile/:id', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id,
+    },
+
+    attributes: { exclude: ["password"] },
+
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+        include: [
+          {
+            model: Comment,
+          }
+        ]
+      },
+    ],
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const user = dbUserData.get({ plain: true });
+
+      // pass data to template
+      res.render('profilePage', { user,
       loggedIn: req.session.loggedIn });
     })
     .catch(err => {

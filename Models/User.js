@@ -49,6 +49,13 @@ User.init(
         len: [4],
       },
     },
+
+    about_me: {
+      type: DataTypes.STRING
+    },
+    interests: {
+      type: DataTypes.STRING
+    }
   },
   {
     hooks: {

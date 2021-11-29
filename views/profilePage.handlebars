@@ -2,78 +2,63 @@
     <div class='row'>
         <div class="col-4">
             <div class="prof-pic-section centerText">
-                <img class="profPic" src="./assets/images/0V6A5256_1.jpg" alt=""></img>
+                <div class="centerText">
+                    <h3>{{user.first_name}} {{user.last_name}}<h3> 
+                </div>
+
+                <div>
+                    <p>@{{user.username}}</p>
+                </div>
+
+                <img class="profPic" src="/assets/images/tom-our-saviour.jpg" alt=""></img>
+
                 <div class="paragraph">
                     <a class ="smlbtn" href= "">pics</a>
                     <a class ="smlbtn" href= "">vids</a>
                 </div>
             </div>
-
+        </div>
+            
+        <div class="col-8">
             <div class="about-section centerText">
                 <h4> Interests</h4>
                 <div class="about-section centerText"> 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
+                        {{user.interests}}
                     </p>
                 </div>
             </div>
         </div>
-            
-        <div class="col-8">
-          <form class="new-post-form"> 
-                    <div class="post-section centerText">
-                        <div class="row">
-                        <h3>What's poppin?</h3>
-                        </div>
-                        <div class="row margin">
-                            <input type="text" id="post_title" cols="30" rows="5" placeholder="Title"></input>
-                        </div>
-                        <div class="row margin">
-                            <input type="text" id="post_body" cols="30" rows="5" placeholder="Tell Us"></input>
-                        </div>
-                    
-                        <div class="row margin">
-                            <button type='submit' class="btn">Post</button>
-                            <br>
-                        </div>
-            </form>
 
-</div>
-
-
-            <div class="about-section centerText">
+        <div class="about-section centerText">
                 <h4> About Me</h4>
                 <div class="about-section centerText">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab nulla vel, quae natus temporibus veritatis dolore officia unde, tempora recusandae facere. Nihil eius tenetur libero culpa quos laudantium nostrum.
+                        {{user.about_me}}
                     </p>
                 </div>
-            </div>
+        </div>
 
-            <div class="post-section centerText">
-                <h2> Posts</h2>
-                <ol>
-                    {{#each posts as |post|}}
-                        <ul class="postUl">
-                            <article class = 'posty'>
-                                <h4 class = "PT"> {{post.title}} </h4>
-                                <div class = "posts">
-                                    <p>
-                                        {{post.body}}
-                                    </p> 
-                                      
-                                    
-                                    </div>
-                                    <button type='submit' class="btn red"> Delete </button>
-                            </article>
-                            
-                        </ul>
-                        
-                    {{/each}}
-                </ol>
-            </div>
+
+        <div class="post_area centerText">
+            <h2> Posts</h2>
+            <ol>
+                {{#each user.posts as |post|}}
+                    <li class="post_section">
+                        <div class="row">
+                            <p class="post_title">{{post.title}}</p>
+                        </div>
+
+                        <div class="row">
+                            <p class="post_body"> {{post.body}}</p>
+                        </div>
+
+                        <div class="row">
+                            <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
         </div>
     </div>
-
-    <script src="/assets/js/post.js"></script>
- {{!-- <script src="/assets/js/delete.js"></script> --}}
+</div>

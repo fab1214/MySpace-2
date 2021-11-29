@@ -1,10 +1,10 @@
 <div class="container">
-   
+  <form class="delete-post-form">
   <div class="post_area centerText">
-    <h4>Comments</h4>
+    <h4>Post</h4>
     <div class="row post_section">
       <div class="row">
-        <a class="post_username">{{post.username}}</a>
+        <a href="../profile/{{post.user_id}}" class="post_username">{{post.username}}</a>
       </div>
 
       <div class="row">
@@ -14,8 +14,13 @@
       <div class="row">
         <p class="post_body"> {{post.body}}</p>
       </div>
+
+          <div class="row">
+          <button type="button" class='btn red'>Delete Post</button>
+          </div>
+
     </div>
-{{#if loggedIn}}
+    </form>
     <div class="row post_section">
      
       <ol>
@@ -23,7 +28,7 @@
         <ul>
           <article class="post_area centerText">
             <div class="row">
-              <a class="post_username">{{comment.username}}</a>
+              <a href= "../profile/{{comment.user_id}}" class="post_username">{{comment.username}}</a>
             </div>
 
             <div class="row">
@@ -40,15 +45,13 @@
         </div>
 
         <div class="row">
-          
           <button class="btn" id="{{post.id}}" type="submit">Submit</button>
-          
+        </div>
         </div>  
-      </form>
-     
+      </form> 
     </div>
-     {{/if}}
   </div>
 </div>
 
+<script src="/assets/js/delete.js"></script>
 <script src="/assets/js/comment.js"></script>

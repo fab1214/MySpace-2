@@ -1,0 +1,111 @@
+<div class='container'>
+    <div class='row'>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class=" row prof-pic-section centerText">
+                        <div class="centerText">
+                            <h3>{{user.first_name}} {{user.last_name}}<h3> 
+                        </div>
+
+                        <div>
+                            <p>@{{user.username}}</p>
+                            <p id="id" style="display: none;">{{user.id}}</p>
+                        </div>
+
+                        <img class="profPic row" src="./assets/images/0V6A5256_1.jpg" alt=""></img>
+
+                        <div class="paragraph">
+                            <a class ="smlbtn" href= "">pics</a>
+                            <a class ="smlbtn" href= "">vids</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8">
+                    <div class="post_area">
+                        <form class="row about-me-form"> 
+                            <div class="post-section centerText">
+                                <div class="row">
+                                    <h3>About Me</h3>
+                                </div>
+
+                                <div class="row margin">
+                                    <textarea type="text" id="about_me" cols="30" rows="5" placeholder="{{user.about_me}}"></textarea>
+                                </div>
+
+                                <div class="row margin">
+                                    <button type='submit' class="btn">Update About Me</button>
+                                    <br>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <form class="row interests-form"> 
+                            <div class="post-section centerText">
+                                <div class="row">
+                                    <h3>Interests</h3>
+                                </div>
+
+                                <div class="row margin">
+                                    <input type="text" id="interests" cols="30" rows="5" placeholder="{{user.interests}}"></input>
+                                </div>
+
+                                <div class="row margin">
+                                    <button type='submit' class="btn">Update Interests</button>
+                                    <br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <form class="new-post-form"> 
+                <div class="post-section centerText">
+                    <div class="row">
+                    <h3>What's poppin?</h3>
+                    </div>
+                    <div class="row margin">
+                        <input type="text" id="post_title" cols="30" rows="5" placeholder="Title"></input>
+                    </div>
+                    <div class="row margin">
+                        <input type="text" id="post_body" cols="30" rows="5" placeholder="Tell Us"></input>
+                    </div>
+                    
+                    <div class="row margin">
+                        <button type='submit' class="btn">Post</button>
+                        <br>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="post_area centerText">
+            <h2> Posts</h2>
+            <ol>
+                {{#each user.posts as |post|}}
+                    <li class="post_section">
+                        <div class="row">
+                            <p class="post_title">{{post.title}}</p>
+                        </div>
+
+                        <div class="row">
+                            <p class="post_body"> {{post.body}}</p>
+                        </div>
+
+                        <div class="row">
+                            <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
+                        </div>
+                        
+                        <button type="button" class='btn blue' onclick="window.location.href='../post/{{post.id}}';">Edit Post</button>
+                    </li>    
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/post.js"></script>
+<script src="/assets/js/update-profile.js"></script>

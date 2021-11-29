@@ -19,14 +19,14 @@
                 <br>
             </div>
         </form>
-{{/if}}
+    {{/if}}
         <div class="post_area centerText">
             <h4> Posts</h4>
             <ol>
                 {{#each posts as |post|}}
                 <li class="post_section">
                     <div class="row">
-                        <a class="post_username">{{post.username}}</a>
+                        <a href="/profile/{{post.user_id}}" class="post_username">@{{post.username}}</a>
                     </div>
 
                     <div class="row">
@@ -40,6 +40,7 @@
                     <div class="row">
                         <a href="./post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
                     </div>
+                    <button type="button" class='btn blue' onclick="window.location.href='../post/{{post.id}}';">Edit Post</button>
                 </li>
                 {{/each}}
             </ol>
