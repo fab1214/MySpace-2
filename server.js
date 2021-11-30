@@ -4,6 +4,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const fileUpload = require("express-fileupload");
 const mysql = require('mysql2');
+const { v4: uuidv4 } = require('uuid');
 // const helpers = require('./utils/helper');
 
 const app = express();
@@ -57,27 +58,28 @@ app.get('/pictures', (req, res) => {
 });
 
 app.post("", (req, res) => {
-  let sampleFile;
+  let file;
   let uploadPath;
+  let myuuid = uuidv4();
 
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send("No files were uploaded");
   }
 
-  //name of the input is sampleFile
-  sampleFile = req.files.sampleFile;
-  uploadPath = __dirname + "/upload/" + sampleFile.name;
-  console.log(sampleFile);
+  //name of the input is file
+  file = req.files.file;
+  uploadPath = __dirname + "/upload/" + myuuid;
+  console.log(file);
 
   //use mv() to place the file on the server
-  sampleFile.mv(uploadPath, function (err) {
+  file.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
 
     pool.getConnection((err, connection) => {
       if (err) throw err; // not connected
       console.log('Connected!');
 
-      connection.query('UPDATE SESSION_USER() SET profile_image = ? WHERE id = "1"', [sampleFile.name], (err, rows) => {
+      connection.query('UPDATE user SET profile_image = ? WHERE id = "1"', [myuuid], (err, rows) => {
         // Once done, release connection
         connection.release();
 
