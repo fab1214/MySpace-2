@@ -9,7 +9,7 @@
                         </div>
 
                         <div>
-                            <p>@{{user.username}}</p>
+                            <p>{{user.username}}</p>
                             <p id="id" style="display: none;">{{user.id}}</p>
                         </div>
 
@@ -31,17 +31,19 @@
                                 </div>
 
                                 <div class="row margin">
-                                    <textarea type="text" id="about_me" cols="30" rows="5" placeholder="{{user.about_me}}"></textarea>
+                                    <textarea style="display: none;" type="text" id="about_me" cols="30" rows="5" placeholder="{{user.about_me}}"></textarea>
                                 </div>
-
+          <p class = "abtMe">{{user.about_me}}</p>
                                 <div class="row margin">
-                                    <button type='submit' class="btn">Update About Me</button>
+                                    <button style="display: none;" type='submit'class="btn" id = 'aboutBtn' >Update About Me</button>
+                                    
                                     <br>
                                 </div>
                             </div>
+                            
                         </form>
 
-
+<button onclick="showText()" class="btn center" id = 'bmp'>Edit About Me</button>
                         <form class="row interests-form"> 
                             <div class="post-section centerText">
                                 <div class="row">
@@ -58,6 +60,7 @@
                                 </div>
                             </div>
                         </form>
+                        <button onclick="showText()" class="btn center" id = 'bmp'>Edit About Me</button>
                     </div>
                 </div>
             </div>
@@ -108,4 +111,5 @@
 </div>
 
 <script src="/assets/js/post.js"></script>
+<script src="/assets/js/showText.js"></script>
 <script src="/assets/js/update-profile.js"></script>

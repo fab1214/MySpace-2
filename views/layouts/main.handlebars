@@ -14,7 +14,15 @@
     <header class="header">
 
         <h1>MySpace 2.0</h1>
-        <nav>
+{{#if loggedIn}}
+{{>loggedIn}}
+{{else}}
+{{>loggedOut}}
+{{/if}}
+
+
+
+        {{!-- <nav>
             <ul>
                 <li>
                     <a href="/feed">Home</a>
@@ -33,7 +41,7 @@
                     {{/if}}
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
     </header>
 
 
