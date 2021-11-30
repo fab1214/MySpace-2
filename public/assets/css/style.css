@@ -8,7 +8,9 @@
     --grey: #7E7E7E;
     --green: #42B72A;
 }
-
+body .green{
+    background-color: #42B72A;
+}
 * {
     font-family: sans-serif;
     height: auto;

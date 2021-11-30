@@ -14,11 +14,11 @@
       <div class="row">
         <p class="post_body"> {{post.body}}</p>
       </div>
-{{!-- find way to make delete only show if you're loggedin and the user that posted --}}
+{{#if loggedIn && post.user_id === user.id}}
           <div class="row">
           <button type="submit" class='btn red'>Delete Post</button>
           </div>
-          
+          {{/if}}
 
     </div>
     </form>
