@@ -77,7 +77,7 @@ router.get('/feed', withAuth, (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('homePage');
+    // res.redirect('homePage');
     return;
   }
 

@@ -16,9 +16,9 @@ async function deleteFormHandler(event) {
   }
 }
 
-// document .querySelector(".delete-post-form").addEventListener("click", deleteFormHandler);
-$('.red').on('click', function(){
-  var parent_id = $(this);
-  console.log(parent_id);
-  deleteFormHandler(parent_id);
- })
+document .querySelector(".delete-post-form").addEventListener("submit", deleteFormHandler);
+// $('.red').on('click', function(){
+//   var parent_id = $(this);
+//   console.log(parent_id);
+//   deleteFormHandler(parent_id);
+//  })
