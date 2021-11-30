@@ -12,11 +12,14 @@
                             <p>{{user.username}}</p>
                             <p id="id" style="display: none;">{{user.id}}</p>
                         </div>
-
+                        {{#if user.profile_image}}
+                        <img class="profPic row" src="{{user.profile_image}}" alt=""></img>
+                        {{else}}
                         <img class="profPic row" src="./assets/images/0V6A5256_1.jpg" alt=""></img>
+                        {{/if}}
 
                         <div class="paragraph">
-                            <a class ="smlbtn" href= "">pics</a>
+                            <a class ="smlbtn" href='/pictures'>pics</a>
                             <a class ="smlbtn" href= "">vids</a>
                         </div>
                     </div>
@@ -109,6 +112,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="/assets/js/post.js"></script>
 <script src="/assets/js/showText.js"></script>
