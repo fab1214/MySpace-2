@@ -55,6 +55,9 @@ User.init(
     },
     interests: {
       type: DataTypes.STRING
+    },
+    song: {
+      type: DataTypes.STRING
     }
   },
   {

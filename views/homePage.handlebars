@@ -20,6 +20,36 @@
                             <a class ="smlbtn" href= "">vids</a>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <form class="song-form">
+                            <select class="post_section" name="song" id="song-selection">
+                                <option value="null"></option>
+                                <option value="who-let-the-dogs-out">Baha Men - Who Let The Dogs Out</option>
+                                <option value="party-rock-anthem">LMFAO - Party Rock Anthem</option>
+                            </select>
+                            <button type="submit" class="btn">Submit Song</button>
+                        </form>
+                    </div>
+
+                    <div class="row post_area">
+                        <audio id="song">
+                        <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
+                        </audio>
+                        <br>
+                        <div class="col-10">
+                            <p>My Favorite Song</p>
+                            <h3>{{user.song}}</h3>
+                        </div>
+
+                        <div class="col-1">
+                            <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
+                        </div>
+
+                        <div class="col-1">
+                            <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-8">
@@ -110,6 +140,7 @@
     </div>
 </div>
 
+<script src="/assets/js/song.js"></script>
 <script src="/assets/js/post.js"></script>
 <script src="/assets/js/showText.js"></script>
 <script src="/assets/js/update-profile.js"></script>
