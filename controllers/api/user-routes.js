@@ -115,10 +115,13 @@ router.post("/logout", (req, res) => {
 router.put("/:id", (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
+
+  console.log(req.body)
   User.update(
     {
       about_me: req.body.about_me,
-      interests: req.body.interests
+      interests: req.body.interests,
+      song: req.body.song
     },
     {
       where: {
