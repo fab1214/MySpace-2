@@ -1,7 +1,7 @@
 :root {
-    --darkblue: #2343A9;
-    --blue: #2652D0;
-    --lightblue: #6FA5F3;
+    --darkblue: black;
+    --blue: black;
+    --lightblue: orange;
     --skyblue: #DEEAFC;
     --white: #FFFFFF;
     --black: #000000;
@@ -9,7 +9,7 @@
     --green: #42B72A;
 }
 body .green{
-    background-color: #42B72A;
+    background-color: white;
 }
 * {
     font-family: sans-serif;
@@ -88,9 +88,12 @@ header nav ul li a {
 .about-section {
     background-color: var(--skyblue);
     padding: 25px;
-    margin-top: 5%;
+   margin: 0%;
     border: 1px solid grey;
     
+}
+.about-me-form{
+    margin:0%;
 }
 .prof-pic-section {
     background-color: var(--skyblue);
@@ -101,10 +104,10 @@ header nav ul li a {
 }
 .post-section {
     background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 5%;
+    padding: 1%;
+    margin-top: 1%;
     border: 1px solid grey;
-    padding-bottom: 1%;
+    
     
 }
 .centerText {
@@ -189,10 +192,53 @@ header nav ul li a {
 .smlbtn a:hover{
     color: green;
 }
-
+main{
+    background: white;
+    color: black;
+    padding: 6px 0px;
+    font-size: 80%;
+  }
+  main .left,
+  main .right{
+    padding: 10px;
+  }
 .green {
     background-color: var(--green);
     width: 100%;
+}
+.black{
+    background-color: black;
+}
+.table{
+    width: 100%;
+    border: 5px solid grey;
+    padding: 0%;
+    background-color: var(--lightblue);
+}
+.heading{
+    border: 1px solid grey;
+    padding: none;
+    background-color: var(--lightblue);
+}
+table{
+    width: 100%;
+    border: 1px solid grey;
+    padding: 0%;
+    
+}
+tr{
+    border: 1px solid grey;
+    padding: 1%;
+}
+th{
+    border: 1px solid grey;
+    padding: 1%;
+    background-color: var(--lightblue);
+}
+td{
+    border: 1px solid grey;
+    padding: 1%;
+    background-color: var(--lightblue);
 }
 
 .red {
@@ -261,10 +307,11 @@ ol {
 .post_area {
     width: 100%;
     background-color: var(--lightblue);
-    padding: 25px;
-    margin-top: 5%;
+    padding: 1%;
+    margin-top: 2%;
+    margin-bottom:10%;
     border: 1px solid grey;
-    padding-bottom: 1%;
+    
 }
 
 .post_section {
