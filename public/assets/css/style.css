@@ -253,7 +253,7 @@ main{
 }
 .table{
     width: 100%;
-    border: 5px solid grey;
+    /* border: 5px solid grey; */
     padding: 0%;
     background-color: var(--lightblue);
     margin: none;

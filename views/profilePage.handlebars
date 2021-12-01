@@ -13,11 +13,11 @@
                             <p id="id" style="display: none;">{{user.id}}</p>
                         </div>
                         {{#if user.profile_image}}
-                        <img class="profPic row" src="{{user.profile_image}}" alt=""></img>
+                        <img class="profPic row" src="http://localhost:3001/{{user.profile_image}}" alt=""></img>
                         {{else}}
                         <img class="profPic row" src="./assets/images/default.png" alt=""></img>
                         {{/if}}
-
+	
                         {{!-- <div class="paragraph">
                             <a class="smlbtn" href='/pictures'>pics</a>
                             <a class="smlbtn" href="">vids</a>
@@ -152,7 +152,7 @@
                     </div>
                      <div class="aboutStuff">
 
-                        <p>{{user.first_name}}'s interests: {{user.interest}}</p>
+                        <p>{{user.first_name}}'s interests: {{user.interests}}</p>
                   
 
                     </div>
