@@ -97,7 +97,7 @@ header nav ul li a {
     margin:0%;
 }
 .row .prof-pic-section {
-    background-color: var(--skyblue);
+    
     padding: 5%;
     border-top: 5%;
     margin-top: 10%;
@@ -121,7 +121,11 @@ header nav ul li a {
     padding-left:0%;
     padding-right:0%;
 }
-.tabllee td:first-child{
+.tabllee .contact:first-child{
+    width: 30%;
+
+}
+.tabllee .some:first-child{
     width: 33%;
 
 }
