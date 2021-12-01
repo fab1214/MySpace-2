@@ -1,88 +1,215 @@
 <div class='container'>
     <div class='row'>
-       
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class=" row prof-pic-section centerText">
+                        <div class="centerText">
+                            <h3>{{user.first_name}} {{user.last_name}}<h3>
+                        </div>
 
-        </div>
-        <div class="col-4">
-            <div class="prof-pic-section centerText">
-                <div class="centerText">
-                    <h3>{{user.first_name}} {{user.last_name}}<h3> 
-                </div>
+                        <div>
+                            <p>{{user.username}}</p>
+                            <p id="id" style="display: none;">{{user.id}}</p>
+                        </div>
+                        {{#if user.profile_image}}
+                        <img class="profPic row" src="{{user.profile_image}}" alt=""></img>
+                        {{else}}
+                        <img class="profPic row" src="./assets/images/default.png" alt=""></img>
+                        {{/if}}
 
-                <div>
-                    <p>@{{user.username}}</p>
-                </div>
+                        {{!-- <div class="paragraph">
+                            <a class="smlbtn" href='/pictures'>pics</a>
+                            <a class="smlbtn" href="">vids</a>
+                        </div> --}}
+                    </div>
 
-                <img class="profPic" src="/assets/images/tom-our-saviour.jpg" alt=""></img>
 
-                <div class="paragraph">
-                    <a class ="smlbtn" href= "">pics</a>
-                    <a class ="smlbtn" href= "">vids</a>
-                </div>
-            </div>
 
-            <div class="row post_area">
+                    <div class="row post_area">
                         <audio id="song">
-                        <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
+                            <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
                         </audio>
                         <br>
                         <div class="col-10">
                             <p>My Favorite Song</p>
                             <h3>{{user.song}}</h3>
                         </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
+                            </div>
 
-                        <div class="col-1">
-                            <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
+                            <div class="col-1">
+                                <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
+                            </div>
                         </div>
 
-                        <div class="col-1">
-                            <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
+
+                        <div class="row">
+                            {{!-- <form class="song-form">
+                                <select class="post_section" name="song" id="song-selection">
+                                    <option value="null"></option>
+                                    <option value="who-let-the-dogs-out">Baha Men - Who Let The Dogs Out</option>
+                                    <option value="party-rock-anthem">LMFAO - Party Rock Anthem</option>
+                                </select>
+                                <button type="submit" class="btn">Submit Song</button>
+                            </form> --}}
                         </div>
                     </div>
-        </div>
-            
-        <div class="col-8">
-            <div class="about-section centerText">
-                <h4>Interests</h4>
-                <div class="about-section centerText"> 
-                    <p>
-                        {{user.interests}}
-                    </p>
+                    <div class="row table">
+                        <div class="heading">
+                            <h3>Contact {{user.username}}</h3>
+                            <table class="tabllee">
+
+                                <tr>
+                                    <td class="contact"><a href="add friend"> add friend</a></td>
+                                    <td class="contact"><a href="message"> message </a>
+
+                                </tr>
+                                <tr>
+                                    <td class="contact"><a href="threaten"> threaten </a>
+                                    <td class="contact"><a href="kiss"> kiss </a>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="row table">
+                        <div class="heading">
+                            <h3>{{user.username}}'s stuff</h3>
+                            <table class="tabllee">
+
+                               
+
+                                <tr>
+                                    <td>General</td>
+                                    <td>{{user.general}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Who I'd like to meet</td>
+                                    <td>{{user.meet}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Music</td>
+                                    <td>{{user.music}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tv</td>
+                                    <td>{{user.tv}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Books</td>
+                                    <td>{{user.books}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Heroes</td>
+                                    <td>{{user.heroes}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {{!-- <a href="update">edit</a> --}}
+                    </div>
+
+                </div>
+
+                <div class="col-8">
+
+
+                    <form class="new-post-form orangeTitle">
+                        {{!-- <div class="row">
+                            <h3 class="centerText">make post</h3>
+                        </div> --}}
+                        {{!-- <div class="post-section centerText">
+
+                            <h3 class=>What's poppin?</h3>
+
+
+                            <div class="row margin">
+                                <input type="text" id="post_title" cols="30" rows="5" placeholder="Blog Title"></input>
+                            </div>
+                            <div class="row margin">
+                                <textarea type="text" id="post_body" cols="30" rows="5"
+                                    placeholder="Blog Post"></textarea>
+                            </div>
+
+                            <div class="row margin">
+                                <button type='submit' class="btn">Post</button>
+                                <br>
+                            </div>
+                        </div> --}}
+                    </form>
+                    <div class="orangeTitle centerText">
+                        <h3>{{user.username}}'s blurbs</h3>
+
+                    </div>
+                    <div class="aboutStuff">
+
+                        <p> About {{user.first_name}}: {{user.about_me}}</p>
+                  
+
+                    </div>
+                     <div class="aboutStuff">
+
+                        <p>{{user.first_name}}'s interests: {{user.interest}}</p>
+                  
+
+                    </div>
+                    {{!-- <div class="orangeTitle centerText">
+                        <h3>Do these backgrounds interest you?</h3>
+                    </div>
+                    <div class="centerText">
+                        <a href="#" onclick="one()"><img id="pic" width="100" height="100"
+                                src="assets/images/tom-our-saviour.jpg" alt=""></img></a>
+                        <a href="#" onclick="two()"><img id="pic" width="100" height="100"
+                                src="assets/images/kim-kardashian-paris-hilton-1509438612.jpg" alt=""></img></a>
+
+                        <a href="#" onclick="three()"><img id="pic" width="100" height="50" src="assets/images/full.jpg"
+                                alt=""></img></a>
+                        <a href="#" onclick="four()"><img id="pic" width="100" height="50" src="assets/images/back.jpeg"
+                                alt=""></img></a>
+                        <a href="#" onclick="five()"><img id="pic" width="100" height="50" src="assets/images/heart.jpg"
+                                alt=""></img></a>
+                    
+
+                    </div> --}}
+                    <h2 class="orangeTitle centerText"> Posts</h2>
+                    <div class="post_area centerText">
+
+                        <ol>
+                            {{#each user.posts as |post|}}
+                            <li class="post_section">
+                                {{!-- <div class="row">
+                                    <p class="post_title">{{post.title}}</p>
+                                </div>
+                                --}}
+
+                                <div class="row">
+                                    <a href="../post/{{post.id}}"> {{post.title}}<span>{{post.comments.length }}</span>
+                                    </a>
+                                </div>
+                                <div class="row centerText">
+                                    <p class="post_body "> {{post.body}}</p>
+                                </div>
+                                <button type="button" class='btn blue'
+                                    onclick="window.location.href='../post/{{post.id}}';">Edit Post</button>
+                            </li>
+                            {{/each}}
+                        </ol>
+                    </div>
+
+
+
+
                 </div>
             </div>
-        </div>
 
-        <div class="about-section centerText">
-                <h4> About Me</h4>
-                <div class="about-section centerText">
-                    <p>
-                        {{user.about_me}}
-                    </p>
-                </div>
+
         </div>
 
 
-        <div class="post_area centerText">
-            <h2> Posts</h2>
-            <ol>
-                {{#each user.posts as |post|}}
-                    <li class="post_section">
-                        <div class="row">
-                            <p class="post_title">{{post.title}}</p>
-                        </div>
 
-                        <div class="row">
-                            <p class="post_body"> {{post.body}}</p>
-                        </div>
-
-                        <div class="row">
-                            <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span> Comment(s)</a>
-                        </div>
-                    </li>
-                {{/each}}
-            </ol>
-        </div>
     </div>
 </div>
-
 <script src="/assets/js/song.js"></script>
