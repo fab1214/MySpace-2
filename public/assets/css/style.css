@@ -20,6 +20,7 @@ body .green{
     height: 100vh;
 }
 
+
 .margin {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -95,21 +96,50 @@ header nav ul li a {
 .about-me-form{
     margin:0%;
 }
-.prof-pic-section {
+.row .prof-pic-section {
     background-color: var(--skyblue);
-    padding: 25px;
+    padding: 5%;
+    border-top: 5%;
     margin-top: 10%;
     border: 1px solid grey;
-    
+    border: none;
+    margin: none;
+    padding-right: none;
 }
-.post-section {
-    background-color: var(--skyblue);
-    padding: 1%;
-    margin-top: 1%;
-    border: 1px solid grey;
+/* .row{
+    margin: 0%;
     
-    
+} */
+.row .post_area{
+  margin-right: 0%;
 }
+.row .prof-pic-section{
+    margin-right: 0%;
+}
+
+.heading{
+    padding-left:0%;
+    padding-right:0%;
+}
+.tabllee td:first-child{
+    width: 33%;
+
+}
+td {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+select{
+    margin: 0%;
+    padding: 0%;
+}
+#song-selection{
+    padding: 2%;
+    
+    margin-right: 0%;
+}
+
+
 .centerText {
     text-align: center;
 }
@@ -146,13 +176,7 @@ header nav ul li a {
     border: 1px solid grey;
     
 }
-.prof-pic-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 10%;
-    border: 1px solid grey;
-    
-}
+
 .post-section {
     background-color: var(--skyblue);
     padding: 25px;
@@ -214,6 +238,7 @@ main{
     border: 5px solid grey;
     padding: 0%;
     background-color: var(--lightblue);
+    margin: none;
 }
 .heading{
     border: 1px solid grey;
@@ -224,7 +249,7 @@ table{
     width: 100%;
     border: 1px solid grey;
     padding: 0%;
-    
+    margin: none;
 }
 tr{
     border: 1px solid grey;
@@ -307,9 +332,9 @@ ol {
 .post_area {
     width: 100%;
     background-color: var(--lightblue);
-    padding: 1%;
+    padding: none;
     margin-top: 2%;
-    margin-bottom:10%;
+    margin-bottom:1%;
     border: 1px solid grey;
     
 }

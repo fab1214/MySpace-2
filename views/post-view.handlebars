@@ -14,7 +14,7 @@
       <div class="row">
         <p class="post_body"> {{post.body}}</p>
       </div>
-{{#if loggedIn && post.user_id === user.id}}
+{{#if loggedIn}}
           <div class="row">
           <button type="submit" class='btn red'>Delete Post</button>
           </div>

@@ -67,6 +67,8 @@ async function songFormHandler(event) {
     }
 }
 
+
+
 // document.querySelector('.about-me-form').addEventListener('submit', newAboutMeHandler);
 // document.querySelector('.interests-form').addEventListener('submit', newInterestHandler);
 document.querySelector('.song-form').addEventListener('submit', songFormHandler)

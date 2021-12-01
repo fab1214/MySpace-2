@@ -1,5 +1,5 @@
 async function newAboutMeHandler(event) {
-    event.preventDefault();
+    // event.preventDefault();
     
     const about_me = document.querySelector('#about_me').value.trim();
     const id = document.querySelector('#id');
