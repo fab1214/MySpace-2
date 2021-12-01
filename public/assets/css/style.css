@@ -1,6 +1,5 @@
 :root {
-    --darkblue: black;
-    --blue: black;
+    --black: black;
     --lightblue: orange;
     --skyblue: #DEEAFC;
     --white: #FFFFFF;
@@ -28,7 +27,7 @@ body .green{
 
 .header {
     
-    background-color: var(--blue);
+    background-color: var(--black);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -54,9 +53,9 @@ body .green{
     list-style:none;
     
 }
-.new-post-form{
-    margin-top: 20%;
-}
+/* .new-post-form{ */
+    /* margin-top: 20%; */
+/* } */
 header nav ul li a {
     color: var(--white);
     text-decoration: none;
@@ -219,7 +218,7 @@ select{
 }
 
 .btn {
-    background-color: var(--blue);
+    background-color: var(--black);
     color:white;
     
 }
@@ -282,7 +281,7 @@ td{
 }
 
 .red {
-    background-color: var(--blue);
+    background-color: var(--black);
     color:white;
     background-color: red;
 }
@@ -308,7 +307,7 @@ td{
 }
 
 .title {
-    color: var(--blue);
+    color: var(--black);
     font-size: 35px;
     font-weight: bolder;
 }
@@ -370,7 +369,7 @@ ol { padding-left: 0%; }
     font-size: 20px;
     font-weight: bold;
     text-align: left;
-    color: var(--darkblue);
+    color: var(--black);
     border-bottom: 1px solid var(--grey);
 }
 
