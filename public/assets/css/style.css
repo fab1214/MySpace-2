@@ -54,6 +54,9 @@ body .green{
     list-style:none;
     
 }
+.new-post-form{
+    margin-top: 20%;
+}
 header nav ul li a {
     color: var(--white);
     text-decoration: none;
@@ -92,6 +95,14 @@ header nav ul li a {
    margin: 0%;
     border: 1px solid grey;
     
+}
+.userInfo{
+    width: 100%;
+    background-color: var(--lightblue);
+    padding: none;
+    margin-top: 2%;
+    margin-bottom:1%;
+    border: 1px solid grey;
 }
 .about-me-form{
     margin:0%;
@@ -343,12 +354,17 @@ ol {
     
 }
 
+.col-8 .center{
+    margin: 0%;
+    padding: 0%;
+}
+
 .post_section {
-    padding: 20px;
+    padding: 1%;
     margin: 20px;
     background-color: var(--skyblue);
 }
-
+ol { padding-left: 0%; }
 .post_username {
     padding: 20px;
     font-size: 20px;
