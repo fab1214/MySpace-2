@@ -5,6 +5,7 @@ const exphbs = require("express-handlebars");
 const fileUpload = require("express-fileupload");
 const mysql = require('mysql2');
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config();
 // const helpers = require('./utils/helper');
 
 const app = express();
@@ -31,17 +32,19 @@ app.use(fileUpload());
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: 'localhost',
-  user: 'root',
-  password: 'hey',
-  database: 'myspace_2_db'
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
 });
+
+
 
 pool.getConnection((err, connection) => {
   if (err) throw err; // not connected
   console.log('Connected!');
 });
 
-app.get('/pictures', (req, res) => {
+app.get('/homePage', (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) throw err; // not connected
     console.log('Connected!');
@@ -50,7 +53,7 @@ app.get('/pictures', (req, res) => {
       // Once done, release connection
       connection.release();
       if (!err) {
-        res.render('pictures', { rows });
+        res.render('homePage', { rows });
       }
     });
 

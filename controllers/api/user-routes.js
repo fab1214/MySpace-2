@@ -121,6 +121,12 @@ router.put("/:id", (req, res) => {
     {
       about_me: req.body.about_me,
       interests: req.body.interests,
+      meet: req.body.meet,
+      general: req.body.general,
+      music: req.body.music,
+      tv: req.body.tv,
+      books: req.body.books,
+      heroes: req.body.heroes,
       song: req.body.song
     },
     {

@@ -19,8 +19,8 @@
                         {{/if}}
 
                         <div class="paragraph">
-                            <a class ="smlbtn" href='/pictures'>pics</a>
-                            <a class ="smlbtn" href= "">vids</a>
+                            <a class="smlbtn" href='/pictures'>pics</a>
+                            <a class="smlbtn" href="">vids</a>
                         </div>
                     </div>
 
@@ -57,40 +57,55 @@
                             </form>
                         </div>
                     </div>
-                      <div class="row table">
+                    <div class="row table">
                         <div class="heading">
                             <h3>Contact {{user.username}}</h3>
                             <table class="tabllee">
 
                                 <tr>
-                                    <td class = "contact"><a href="something"> wfawcwef </a></td>
-                                    <td class = "contact"><a href="something"> wfawcwef </a>
+                                    <td class="contact"><a href="something"> wfawcwef </a></td>
+                                    <td class="contact"><a href="something"> wfawcwef </a>
 
                                 </tr>
                                 <tr>
-                                    <td class = "contact"><a href="something"> wfawcwef </a>
-                                    <td class = "contact"><a href="something"> wfawcwef </a>
+                                    <td class="contact"><a href="something"> wfawcwef </a>
+                                    <td class="contact"><a href="something"> wfawcwef </a>
                                 </tr>
                             </table>
                         </div>
-                       
+
                     </div>
 
                     <div class="row table">
                         <div class="heading">
-                            <h3>fdsf</h3>
+                            <h3>{{user.username}}'s stuff</h3>
                             <table class="tabllee">
 
-                                <tr>
-                                    <td class = "some">About Me</td>
-                                    <td>
-                                        <p>{{user.about_me}}</p>
-                                    </td>
+                               
 
+                                <tr>
+                                    <td>General</td>
+                                    <td>{{user.general}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Interests</td>
-                                    <td>{{user.interests}}</td>
+                                    <td>Who I'd like to meet</td>
+                                    <td>{{user.meet}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Music</td>
+                                    <td>{{user.music}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tv</td>
+                                    <td>{{user.tv}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Books</td>
+                                    <td>{{user.books}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Heroes</td>
+                                    <td>{{user.heroes}}</td>
                                 </tr>
                             </table>
                         </div>
@@ -100,31 +115,23 @@
                 </div>
 
                 <div class="col-8">
-                    {{!-- <div class = "userInfo">
-    <div class="post-stection">
-          <h3>STUFF</h3>
-        <p>more stuff</p>
-       
-    </div>
-</div>
-<div class = "userInfo centerText">
-     <h3>STUFF</h3>
- <div class="friends-stection">
-       
-        <p>more stuff</p>
-    </div>
-</div> --}}
 
-                    <form class="new-post-form">
+
+                    <form class="new-post-form orangeTitle">
+                        {{!-- <div class="row">
+                            <h3 class="centerText">make post</h3>
+                        </div> --}}
                         <div class="post-section centerText">
-                            <div class="row">
-                                <h3>What's poppin?</h3>
+
+                            <h3 class=>What's poppin?</h3>
+
+
+                            <div class="row margin">
+                                <input type="text" id="post_title" cols="30" rows="5" placeholder="Blog Title"></input>
                             </div>
                             <div class="row margin">
-                                <input type="text" id="post_title" cols="30" rows="5" placeholder="Title"></input>
-                            </div>
-                            <div class="row margin">
-                                <textarea type="text" id="post_body" cols="30" rows="5" placeholder="Tell Us"></textarea>
+                                <textarea type="text" id="post_body" cols="30" rows="5"
+                                    placeholder="Blog Post"></textarea>
                             </div>
 
                             <div class="row margin">
@@ -133,24 +140,56 @@
                             </div>
                         </div>
                     </form>
+                    <div class="orangeTitle centerText">
+                        <h3>{{user.username}}'s blurbs</h3>
+
+                    </div>
+                    <div>
+
+                        <p> About {{user.first_name}}: {{user.about_me}}</p>
+                        {{!-- {{#each user.username}}
+                        {{this}}
+                        {{/each}} --}}
+
+                    </div>
+                    <div class="orangeTitle centerText">
+                        <h3>Do these backgrounds interest you?</h3>
+                    </div>
+                    <div class="centerText">
+                        <a href="#" onclick="one()"><img id="pic" width="100" height="100"
+                                src="assets/images/tom-our-saviour.jpg" alt=""></img></a>
+                        <a href="#" onclick="two()"><img id="pic" width="100" height="100"
+                                src="assets/images/kim-kardashian-paris-hilton-1509438612.jpg" alt=""></img></a>
+
+                        <a href="#" onclick="three()"><img id="pic" width="100" height="50" src="assets/images/full.jpg"
+                                alt=""></img></a>
+                        <a href="#" onclick="four()"><img id="pic" width="100" height="50" src="assets/images/back.jpeg"
+                                alt=""></img></a>
+                        <a href="#" onclick="five()"><img id="pic" width="100" height="50" src="assets/images/heart.jpg"
+                                alt=""></img></a>
+                        {{!-- {{#each user.username}}
+                        {{this}}
+                        {{/each}} --}}
+
+                    </div>
+                    <h2 class="orangeTitle centerText"> Posts</h2>
                     <div class="post_area centerText">
-                        <h2> Posts</h2>
+
                         <ol>
                             {{#each user.posts as |post|}}
                             <li class="post_section">
-                                <div class="row">
+                                {{!-- <div class="row">
                                     <p class="post_title">{{post.title}}</p>
                                 </div>
+                                --}}
 
                                 <div class="row">
-                                    <p class="post_body"> {{post.body}}</p>
+                                    <a href="../post/{{post.id}}"> {{post.title}}<span>{{post.comments.length }}</span>
+                                    </a>
                                 </div>
-
-                                <div class="row">
-                                    <a href="../post/{{post.id}}">View <span>{{post.comments.length }}</span>
-                                        Comment(s)</a>
+                                <div class="row centerText">
+                                    <p class="post_body "> {{post.body}}</p>
                                 </div>
-
                                 <button type="button" class='btn blue'
                                     onclick="window.location.href='../post/{{post.id}}';">Edit Post</button>
                             </li>
@@ -172,11 +211,8 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-
-=======
 <script src="/assets/js/song.js"></script>
->>>>>>> 773f48373fee5be1fc587b603295a82baae894d5
+<script src="/assets/js/background.js"></script>
 <script src="/assets/js/post.js"></script>
 <script src="/assets/js/showText.js"></script>
 <script src="/assets/js/update-profile.js"></script>
