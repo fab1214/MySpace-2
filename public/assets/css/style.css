@@ -106,7 +106,7 @@ header nav ul li a {
 }
 .orangeTitle{
     width: 100%;
-    background-color:orange;
+    background-color: var(--lightblue);
     padding: none;
     margin-top: 2%;
     margin-bottom:1%;
@@ -193,15 +193,15 @@ select{
 }
 
 .about-section {
-    background-color: var(--skyblue);
+    background-color: var(--lightblue);
     padding: 25px;
     margin-top: 5%;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     
 }
 
 .post-section {
-    background-color: var(--skyblue);
+    background-color: var(--lightblue);
     padding: 25px;
     margin-top: 5%;
     /* border: 1px solid grey; */
@@ -279,7 +279,7 @@ th{
     background-color: var(--lightblue);
 }
 td{
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     padding: 1%;
     background-color: var(--lightblue);
 }

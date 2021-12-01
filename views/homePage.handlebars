@@ -162,40 +162,20 @@
                             </div>
                         </div>
                     </form>
-                    <div class="orangeTitle centerText">
+                    {{!-- <div class="orangeTitle centerText">
                         <h3>{{user.username}}'s blurbs</h3>
 
-                    </div>
-                    <div>
+                    </div> --}}
+                    {{!-- <div> --}}
 
-                        <p> About {{user.first_name}}: {{user.about_me}}</p>
+                        {{!-- <p> About {{user.first_name}}: {{user.about_me}}</p> --}}
                         {{!-- {{#each user.username}}
                         {{this}}
                         {{/each}} --}}
 
-                    </div>
-                    <div class="orangeTitle centerText">
-                        <h3>Do these backgrounds interest you?</h3>
-                    </div>
-                    <div class="centerText">
-                        <a href="#" onclick="one()"><img id="pic" width="100" height="100"
-                                src="assets/images/tom-our-saviour.jpg" alt=""></img></a>
-                        <a href="#" onclick="two()"><img id="pic" width="100" height="100"
-                                src="assets/images/kim-kardashian-paris-hilton-1509438612.jpg" alt=""></img></a>
-
-                        <a href="#" onclick="three()"><img id="pic" width="100" height="50" src="assets/images/full.jpg"
-                                alt=""></img></a>
-                        <a href="#" onclick="four()"><img id="pic" width="100" height="50" src="assets/images/back.jpeg"
-                                alt=""></img></a>
-                        <a href="#" onclick="five()"><img id="pic" width="100" height="50" src="assets/images/heart.jpg"
-                                alt=""></img></a>
-                        {{!-- {{#each user.username}}
-                        {{this}}
-                        {{/each}} --}}
-
-                    </div>
-                    <h2 class="orangeTitle centerText"> Posts</h2>
+                    {{!-- </div> --}}
                     <div class="post_area centerText">
+                    <h2 class="orangeTitle centerText"> Posts</h2>
 
                         <ol>
                             {{#each user.posts as |post|}}
@@ -219,6 +199,26 @@
                         </ol>
                     </div>
 
+                    <div class="orangeTitle centerText">
+                        <h3>Do these backgrounds interest you?</h3>
+                    
+                    <div class="centerText">
+                        <a href="#" onclick="one()"><img id="pic" width="100" height="100"
+                                src="assets/images/tom-our-saviour.jpg" alt=""></img></a>
+                        <a href="#" onclick="two()"><img id="pic" width="100" height="100"
+                                src="assets/images/kim-kardashian-paris-hilton-1509438612.jpg" alt=""></img></a>
+
+                        <a href="#" onclick="three()"><img id="pic" width="100" height="50" src="assets/images/full.jpg"
+                                alt=""></img></a>
+                        <a href="#" onclick="four()"><img id="pic" width="100" height="50" src="assets/images/back.jpeg"
+                                alt=""></img></a>
+                        <a href="#" onclick="five()"><img id="pic" width="100" height="50" src="assets/images/heart.jpg"
+                                alt=""></img></a>
+                        {{!-- {{#each user.username}}
+                        {{this}}
+                        {{/each}} --}}
+</div>
+                    </div>
 
 
 
