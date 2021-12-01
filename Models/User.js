@@ -55,6 +55,25 @@ User.init(
     interests: {
       type: DataTypes.STRING
     },
+    meet: {
+      type: DataTypes.STRING
+    },
+    general: {
+      type: DataTypes.STRING
+    },
+    music: {
+      type: DataTypes.STRING
+    },
+    
+    tv: {
+      type: DataTypes.STRING
+    },
+    books: {
+      type: DataTypes.STRING
+    },
+    heroes: {
+      type: DataTypes.STRING
+    },
     profile_image: {
       type: DataTypes.STRING(100),
       defaultValue: 'default.png'
