@@ -1,14 +1,16 @@
 :root {
-    --darkblue: #2343A9;
-    --blue: #2652D0;
-    --lightblue: #6FA5F3;
+    --darkblue: black;
+    --blue: black;
+    --lightblue: orange;
     --skyblue: #DEEAFC;
     --white: #FFFFFF;
     --black: #000000;
     --grey: #7E7E7E;
     --green: #42B72A;
 }
-
+body .green{
+    background-color: white;
+}
 * {
     font-family: sans-serif;
     height: auto;
@@ -17,6 +19,7 @@
 .max {
     height: 100vh;
 }
+
 
 .margin {
     margin-top: 15px;
@@ -50,6 +53,9 @@
     align-items: center;
     list-style:none;
     
+}
+.new-post-form{
+    margin-top: 20%;
 }
 header nav ul li a {
     color: var(--white);
@@ -86,25 +92,69 @@ header nav ul li a {
 .about-section {
     background-color: var(--skyblue);
     padding: 25px;
-    margin-top: 5%;
+   margin: 0%;
     border: 1px solid grey;
     
 }
-.prof-pic-section {
-    background-color: var(--skyblue);
-    padding: 25px;
+.userInfo{
+    width: 100%;
+    background-color: var(--lightblue);
+    padding: none;
+    margin-top: 2%;
+    margin-bottom:1%;
+    border: 1px solid grey;
+}
+.about-me-form{
+    margin:0%;
+}
+.row .prof-pic-section {
+    
+    padding: 5%;
+    border-top: 5%;
     margin-top: 10%;
     border: 1px solid grey;
-    
+    border: none;
+    margin: none;
+    padding-right: none;
 }
-.post-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 5%;
-    border: 1px solid grey;
-    padding-bottom: 1%;
+/* .row{
+    margin: 0%;
     
+} */
+.row .post_area{
+  margin-right: 0%;
 }
+.row .prof-pic-section{
+    margin-right: 0%;
+}
+
+.heading{
+    padding-left:0%;
+    padding-right:0%;
+}
+.tabllee .contact:first-child{
+    width: 30%;
+
+}
+.tabllee .some:first-child{
+    width: 33%;
+
+}
+td {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+select{
+    margin: 0%;
+    padding: 0%;
+}
+#song-selection{
+    padding: 2%;
+    
+    margin-right: 0%;
+}
+
+
 .centerText {
     text-align: center;
 }
@@ -141,13 +191,7 @@ header nav ul li a {
     border: 1px solid grey;
     
 }
-.prof-pic-section {
-    background-color: var(--skyblue);
-    padding: 25px;
-    margin-top: 10%;
-    border: 1px solid grey;
-    
-}
+
 .post-section {
     background-color: var(--skyblue);
     padding: 25px;
@@ -187,10 +231,54 @@ header nav ul li a {
 .smlbtn a:hover{
     color: green;
 }
-
+main{
+    background: white;
+    color: black;
+    padding: 6px 0px;
+    font-size: 80%;
+  }
+  main .left,
+  main .right{
+    padding: 10px;
+  }
 .green {
     background-color: var(--green);
     width: 100%;
+}
+.black{
+    background-color: black;
+}
+.table{
+    width: 100%;
+    border: 5px solid grey;
+    padding: 0%;
+    background-color: var(--lightblue);
+    margin: none;
+}
+.heading{
+    border: 1px solid grey;
+    padding: none;
+    background-color: var(--lightblue);
+}
+table{
+    width: 100%;
+    border: 1px solid grey;
+    padding: 0%;
+    margin: none;
+}
+tr{
+    border: 1px solid grey;
+    padding: 1%;
+}
+th{
+    border: 1px solid grey;
+    padding: 1%;
+    background-color: var(--lightblue);
+}
+td{
+    border: 1px solid grey;
+    padding: 1%;
+    background-color: var(--lightblue);
 }
 
 .red {
@@ -259,18 +347,24 @@ ol {
 .post_area {
     width: 100%;
     background-color: var(--lightblue);
-    padding: 25px;
-    margin-top: 5%;
+    padding: none;
+    margin-top: 2%;
+    margin-bottom:1%;
     border: 1px solid grey;
-    padding-bottom: 1%;
+    
+}
+
+.col-8 .center{
+    margin: 0%;
+    padding: 0%;
 }
 
 .post_section {
-    padding: 20px;
+    padding: 1%;
     margin: 20px;
     background-color: var(--skyblue);
 }
-
+ol { padding-left: 0%; }
 .post_username {
     padding: 20px;
     font-size: 20px;

@@ -1,5 +1,8 @@
 <div class='container'>
     <div class='row'>
+       
+
+        </div>
         <div class="col-4">
             <div class="prof-pic-section centerText">
                 <div class="centerText">
@@ -17,11 +20,30 @@
                     <a class ="smlbtn" href= "">vids</a>
                 </div>
             </div>
+
+            <div class="row post_area">
+                        <audio id="song">
+                        <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
+                        </audio>
+                        <br>
+                        <div class="col-10">
+                            <p>My Favorite Song</p>
+                            <h3>{{user.song}}</h3>
+                        </div>
+
+                        <div class="col-1">
+                            <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
+                        </div>
+
+                        <div class="col-1">
+                            <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
+                        </div>
+                    </div>
         </div>
             
         <div class="col-8">
             <div class="about-section centerText">
-                <h4> Interests</h4>
+                <h4>Interests</h4>
                 <div class="about-section centerText"> 
                     <p>
                         {{user.interests}}
@@ -62,3 +84,5 @@
         </div>
     </div>
 </div>
+
+<script src="/assets/js/song.js"></script>

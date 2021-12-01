@@ -58,6 +58,9 @@ User.init(
     profile_image: {
       type: DataTypes.STRING(100),
       defaultValue: 'default.png'
+    },
+    song: {
+      type: DataTypes.STRING
     }
   },
   {
