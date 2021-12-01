@@ -49,12 +49,15 @@ User.init(
         len: [4],
       },
     },
-
     about_me: {
       type: DataTypes.STRING
     },
     interests: {
       type: DataTypes.STRING
+    },
+    profile_image: {
+      type: DataTypes.STRING(100),
+      defaultValue: 'default.png'
     },
     song: {
       type: DataTypes.STRING

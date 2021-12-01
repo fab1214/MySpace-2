@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { UniqueConstraintError } = require('sequelize/dist');
-const { underscoredIf } = require('sequelize/dist/lib/utils');
+// const { UniqueConstraintError } = require('sequelize/dist');
+// const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../Models')
 const withAuth = require('../utils/auth');
@@ -174,5 +174,15 @@ router.get('/profile/:id', withAuth, (req, res) => {
     });
 });
 
+router.get('/update', (req, res) => {
+ 
+
+      // serialize the data
+    
+
+      // pass data to template
+      res.render('updateInfo');
+    })
+    
 
 module.exports = router;
