@@ -44,7 +44,7 @@ pool.getConnection((err, connection) => {
   console.log('Connected!');
 });
 
-app.get('/pictures', (req, res) => {
+app.get('/homePage', (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) throw err; // not connected
     console.log('Connected!');
@@ -53,7 +53,7 @@ app.get('/pictures', (req, res) => {
       // Once done, release connection
       connection.release();
       if (!err) {
-        res.render('pictures', { rows });
+        res.render('homePage', { rows });
       }
     });
 
