@@ -21,8 +21,31 @@ async function newAboutMeHandler(event) {
       alert(response.statusText);
     }
 }
-
 async function newInterestHandler(event) {
+    // event.preventDefault();
+
+    const interest = document.querySelector('#interest').value.trim();
+    const id = document.querySelector('#id');
+
+    const response = await fetch(`/api/users/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            interest
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if (response.ok) {
+        console.log('user updated');
+        document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+}
+
+async function newGenHandler(event) {
     // event.preventDefault();
 
     const general = document.querySelector('#general').value.trim();
@@ -169,6 +192,7 @@ $('.btn').on('click', function(){
   var parent_id = $(this);
   console.log(parent_id);
   newInterestHandler(parent_id);
+  newGenHandler(parent_id);
   newAboutMeHandler(parent_id);
   newMeetHandler(parent_id);
   newMusicHandler(parent_id);
