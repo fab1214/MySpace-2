@@ -80,6 +80,10 @@ User.init(
     },
     song: {
       type: DataTypes.STRING
+    },
+    background_image: {
+      type: DataTypes.STRING,
+      defaultValue: 'default.jpg'
     }
   },
   {
