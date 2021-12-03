@@ -37,6 +37,20 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME
 });
 
+const hbs = exphbs.create({});
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'upload')));
+app.use(session(sess));
+app.use((req, res, next) => {
+  res.locals = { ...res.locals, ...req.session };
+  next();
+});
+app.use(require("./controllers/"));
 
 
 pool.getConnection((err, connection) => {
@@ -82,7 +96,7 @@ app.post("", (req, res) => {
       if (err) throw err; // not connected
       console.log('Connected!');
 
-      connection.query('UPDATE user SET profile_image = ? WHERE id = "1"', [myuuid], (err, rows) => {
+      connection.query('UPDATE user SET profile_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
         // Once done, release connection
         connection.release();
 
@@ -99,21 +113,7 @@ app.post("", (req, res) => {
   });
 });
 
-const hbs = exphbs.create({});
 
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, 'upload')));
-app.use(session(sess));
-app.use((req, res, next) => {
-  res.locals = { ...res.locals, ...req.session };
-  next();
-});
-app.use(require("./controllers/"));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));

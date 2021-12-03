@@ -78,7 +78,10 @@ User.init(
       type: DataTypes.STRING(100),
       defaultValue: 'default.png'
     },
-    song: {
+    song_title: {
+      type: DataTypes.STRING
+    },
+    song_link: {
       type: DataTypes.STRING
     },
     background_image: {

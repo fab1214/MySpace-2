@@ -54,14 +54,30 @@
 
 
                     <div class="row post_area">
-                        <audio id="song">
+                        {{!-- <audio id="song">
                             <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
                         </audio>
-                        <br>
+                        <br> --}}
                         <div class="col-10">
                             <p>My Favorite Song</p>
-                            <h3>{{user.song}}</h3>
                         </div>
+
+                        <div class="row">
+                            <form class="song-form">
+                                <div class="row">
+                                    <textarea id="youtube_link" placeholder="Enter your favorite song's youtube url"></textarea>
+                                </div>
+                                <div class="row">
+                                    <button class="btn" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="row">
+                            <h4>{{user.song_title}}</h4>
+                            <iframe id = 'song' src="https://www.youtube.com/embed/{{user.song_link}}"></iframe>
+                        </div>
+{{!-- 
                         <div class="row">
                             <div class="col-1">
                                 <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
@@ -70,19 +86,7 @@
                             <div class="col-1">
                                 <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
                             </div>
-                        </div>
-
-
-                        <div class="row">
-                            <form class="song-form">
-                                <select class="post_section" name="song" id="song-selection">
-                                    <option value="null"></option>
-                                    <option value="who-let-the-dogs-out">Baha Men - Who Let The Dogs Out</option>
-                                    <option value="party-rock-anthem">LMFAO - Party Rock Anthem</option>
-                                </select>
-                                <button type="submit" class="btn">Submit Song</button>
-                            </form>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="card row table">
                         <div class="heading">
@@ -162,22 +166,23 @@
                             </div>
                         </div>
                     </form>
-                    <div class="orangeTitle centerText">
+                    <div class="card orangeTitle centerText">
                         <h3>{{user.username}}'s blurbs</h3>
 
-                    </div>
                     <div class="aboutStuff">
 
-                        <p> About {{user.first_name}}: {{user.about_me}}</p>
+                        <h3> About {{user.first_name}}: {{user.about_me}}</h3>
                   
 
                     </div>
                      <div class="aboutStuff">
 
-                        <p>{{user.first_name}}'s interests: {{user.interests}}</p>
+                        <h3>{{user.first_name}}'s interests: {{user.interests}}</h3>
                   
 
                     </div>
+                    </div>
+
                     <div class="orangeTitle centerText">
                         <h3>Do these backgrounds interest you?</h3>
                     </div>
@@ -201,8 +206,6 @@
 
                     </div>
                     <h2 class="orangeTitle centerText"> Posts</h2>
-                    <div class="post_area centerText">
-
                         <ol>
                             {{#each user.posts as |post|}}
                             <li class="post_section">
