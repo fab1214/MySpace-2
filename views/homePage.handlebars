@@ -200,6 +200,14 @@
                                 alt=""></img></a>
                         <a href="#" onclick="changeBackground('default.jpg')"><img id="pic" width="100" height="50" src="assets/images/default.jpg" style="border: 1px solid black;"
                                 alt=""></img></a>
+
+                                 <form action='/' method="POST" encType="multipart/form-data">
+                <p>Select an image to set as your new profile photo</p>
+                <input type='file' name='file' accept='image/*'/>
+                <button type='submit' class='btn btn-secondary'>Submit</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </form>
+                                
                         {{!-- {{#each user.username}}
                         {{this}}
                         {{/each}} --}}
