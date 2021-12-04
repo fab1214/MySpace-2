@@ -127,7 +127,9 @@ router.put("/:id", (req, res) => {
       tv: req.body.tv,
       books: req.body.books,
       heroes: req.body.heroes,
-      song: req.body.song
+      song_title: req.body.song_title,
+      song_link: req.body.song_link,
+      background_image: req.body.background_image
     },
     {
       where: {

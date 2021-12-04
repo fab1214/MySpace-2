@@ -33,9 +33,9 @@
                         <br>
                         <div class="col-10">
                             <p>My Favorite Song</p>
-                            <h3>{{user.song}}</h3>
+                            {{!-- <h3>{{user.song}}</h3> --}}
                         </div>
-                        <div class="row">
+                        {{!-- <div class="row">
                             <div class="col-1">
                                 <button onclick="play()" class="btn"><i class="fas fa-play"></i></button>
                             </div>
@@ -43,8 +43,11 @@
                             <div class="col-1">
                                 <button onclick="pause()" class="btn"><i class="fas fa-pause"></i></button>
                             </div>
+                        </div> --}}
+                        <div class="row">
+                            <h4>{{user.song_title}}</h4>
+                            <iframe id = 'song' src="https://www.youtube.com/embed/{{user.song_link}}"></iframe>
                         </div>
-
 
                         <div class="row">
                             {{!-- <form class="song-form">
