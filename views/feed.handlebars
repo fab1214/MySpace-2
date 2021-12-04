@@ -36,7 +36,6 @@
                     <div class="row">
                         <p class="post_body"> {{post.body}}</p>
                     </div>
-
                     <div class="row">
                         <a href="./post/{{post.id}}">View <span>{{post.comments.length}}</span> Comment(s)</a>
                     </div>
@@ -49,6 +48,6 @@
 </div>
 
 {{#if loggedIn}}
-
+<script src="/assets/js/like.js"></script>
 <script src="/assets/js/postToFeed.js"></script>
 {{/if}}

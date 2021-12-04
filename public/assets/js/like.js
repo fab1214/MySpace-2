@@ -17,8 +17,8 @@ async function likeClickHandler(event){
     if(response.ok){
         document.location.reload();
     }else {
-        alert(response.statusText);
+        alert('Cannot like the post more than once!');
     }
 }
 
-document.querySelector('.like-btn').addEventListener('click', likeClickHandler);
+document.querySelector('#like-btn').addEventListener('click', likeClickHandler);

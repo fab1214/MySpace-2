@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'user_id',
             'title',
             'body',
             [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
@@ -93,15 +92,13 @@ router.post('/', withAuth, (req, res)=> {
 // PUT /api/posts/upvote
 router.put('/like', (req, res) => {
     // custom static method created in models/Post.js
-    if (req.session){
-    Likes.like(req.body, { Likes })
-      .then(updatedPostData => res.json(updatedPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-    }
-  });
+    Post.like({ ...req.body, user_id: req.session.user_id }, { Likes })
+    .then(updatedVoteData => res.json(updatedVoteData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
   
 
 // router.put('/:id', (req, res)=> {
