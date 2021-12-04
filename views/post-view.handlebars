@@ -13,6 +13,7 @@
 
       <div class="row">
         <p class="post_body"> {{post.body}}</p>
+        {{post.likes_model_count}} likes
       </div>
 {{#if loggedIn}}
           <div class="row">
@@ -41,6 +42,7 @@
       </ol>
 {{#if loggedIn}}
       <form class="new-comment-form">
+    <button type="button" class="like-btn">Like</button>
         <div class="row">
           <textarea id="comment_text" cols="30" rows="2"placeholder="Post a comment..."></textarea>
         </div>
@@ -55,5 +57,6 @@
   </div>
 </div>
 
+<script src="/assets/js/like.js"></script>
 <script src="/assets/js/delete.js"></script>
 <script src="/assets/js/comment.js"></script>

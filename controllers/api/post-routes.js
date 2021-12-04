@@ -91,14 +91,16 @@ router.post('/', withAuth, (req, res)=> {
 });
 
 // PUT /api/posts/upvote
-router.put('/upvote', (req, res) => {
+router.put('/like', (req, res) => {
     // custom static method created in models/Post.js
-    Likes.upvote(req.body, { Likes })
+    if (req.session){
+    Likes.like(req.body, { Likes })
       .then(updatedPostData => res.json(updatedPostData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
       });
+    }
   });
   
 

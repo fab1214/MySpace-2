@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Likes extends Model {
-  static upvote(body, models) {
+  static like(body, models) {
     return models.Likes.create({
       user_id: body.user_id,
       post_id: body.post_id
@@ -35,7 +35,7 @@ Likes.init(
       },
       user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'user',
           key: 'id'
