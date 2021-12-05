@@ -95,8 +95,17 @@ app.post("", (req, res) => {
     pool.getConnection((err, connection) => {
       if (err) throw err; // not connected
       console.log('Connected!');
+//possibly an if statement here
 
-      connection.query('UPDATE user SET profile_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
+
+//example if(changebackground)
+// connection.query('UPDATE user SET background_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
+  //else
+  //connection.query('UPDATE user SET profile_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
+
+
+
+      connection.query('UPDATE user SET background_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
         // Once done, release connection
         connection.release();
 
