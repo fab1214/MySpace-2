@@ -108,37 +108,40 @@ header nav ul li a {
     width: 100%;
     background-color:orange;
     padding: none;
-    margin-top: 2%;
-    margin-bottom:1%;
+   margin: none;
+}
+
+h3 .orangeTitle{
+  
+   margin: none;
 }
 .about-me-form{
     margin:0%;
 }
 .row .prof-pic-section {
     
-    padding: 5%;
-    border-top: 5%;
+    /* padding: 5%; */
+    /* border-top: 5%; */
     margin-top: 10%;
-    padding-right:0%;
+    
     background-color: lightblue;
-    border: 1px solid grey;
+    border: 2px solid blue;
     border: none;
     margin: none;
     padding-right: none;
+    border-bottom: 1px solid var(--grey);
 }
 /* .row{
     margin: 0%;
     
 } */
-.row .post_area{
+/* .row .post_area{
   margin-right: 0%;
-}
+  width: 100%;
+} */
 
 
-.heading{
-    padding-left:0%;
-    padding-right:0%;
-}
+
 .tabllee .contact:first-child{
     width: 30%;
 
@@ -163,7 +166,12 @@ select{
 
 
 .centerText {
+   
     text-align: center;
+}
+.somethingElse{
+    padding: none;
+    border-bottom: 1px solid var(--grey);
 }
 .profPic{
     width: 50%;
@@ -171,6 +179,17 @@ select{
    margin-left:25%;
     object-fit: cover;
     
+}
+.col-10{
+    width: 100%;
+}
+.formHolder{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.videoHolder{
+    padding-right: none;
+    padding-left:10%;
 }
 .PT {
     display: flex;
@@ -207,11 +226,10 @@ select{
     /* border: 1px solid grey; */
     padding-bottom: 1%;
     list-style: none;
+    margin-bottom: 3%;
     
 }
-.centerText {
-    text-align: center;
-}
+
 
 
 .input-box {
@@ -252,16 +270,22 @@ main{
     background-color: black;
 }
 .table{
-    width: 100%;
+    
     /* border: 5px solid grey; */
     padding: 0%;
     background-color: var(--lightblue);
     margin: none;
 }
+.table {width: auto;}
 .heading{
+    padding-left:0%;
+    padding-right:0%;
     border: 1px solid grey;
-    padding: none;
+    
     background-color: var(--lightblue);
+}
+.headingAgain{
+    padding: 1%;
 }
 table{
     width: 100%;
@@ -319,6 +343,7 @@ td{
 .paragraph {
     color: var(--black);
     font-size: 25px;
+    padding:none;
 }
 
 .vcenter {
@@ -348,7 +373,7 @@ ol {
 }
 
 .post_area {
-    width: 100%;
+    /* width: 100%; */
     background-color: lightblue;
     padding: none;
     margin-top: 2%;
@@ -398,4 +423,11 @@ ol { padding-left: 0%; }
 }
 .aboutStuff{
 margin-bottom: 10%;
+
+
+}
+
+.card{
+    background-color: var(--skyblue);
+    margin-bottom: 2%;
 }
