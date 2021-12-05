@@ -49,6 +49,9 @@ User.init(
         len: [4],
       },
     },
+    // friends: {
+    //   type: DataTypes.ARRAY(DataTypes.DECIMAL)
+    // },
     about_me: {
       type: DataTypes.STRING
     },

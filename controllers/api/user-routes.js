@@ -1,13 +1,32 @@
 //user routes (get, post, put, delete)
 const router = require("express").Router();
-const { User, Post } = require("../../Models/");
+const { User, Post , Friend_request } = require("../../Models/");
+const sequelize = require('../../config/connection');
 
 
 //GET route - All users
 router.get("/", (req, res) => {
   
   User.findAll({
+    //exlcude showing password when retriving user data
     attributes: { exclude: ["password"] },
+    // include the Post id, title, url, and create data
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "body", "created_at"],
+      },
+      {
+        model: Friend_request,
+        attributes: [
+          'id',
+          'sender_id',
+          [sequelize.literal('(SELECT username FROM user WHERE user.id = friend_requests.sender_id)'), 'username'],
+          [sequelize.literal('(SELECT first_name FROM user WHERE user.id = friend_requests.sender_id)'), 'first_name'],
+          [sequelize.literal('(SELECT last_name FROM user WHERE user.id = friend_requests.sender_id)'), 'last_name']
+        ]
+      }
+    ]
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
