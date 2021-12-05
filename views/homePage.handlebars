@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-4">
                     <div class=" row prof-pic-section centerText">
-                        <div class="centerText">
+                        <div class="centerText somethingElse">
                             <h3>{{user.first_name}} {{user.last_name}}<h3>
                         </div>
 
@@ -58,11 +58,11 @@
                             <source src='/assets/audio/{{user.song}}.mp3' type="audio/mpeg">
                         </audio>
                         <br> --}}
-                        <div class="col-10">
+                        <div class="col-10 centerText">
                             <p>My Favorite Song</p>
                         </div>
 
-                        <div class="row">
+                        <div class="formHolder">
                             <form class="song-form">
                                 <div class="row">
                                     <textarea id="youtube_link" placeholder="Enter your favorite song's youtube url"></textarea>
@@ -73,7 +73,7 @@
                             </form>
                         </div>
 
-                        <div class="row">
+                        <div class="videoHolder">
                             <h4>{{user.song_title}}</h4>
                             <iframe id = 'song' src="https://www.youtube.com/embed/{{user.song_link}}"></iframe>
                         </div>
@@ -104,7 +104,7 @@
 
                     <div class="card row table">
                         <div class="heading">
-                            <h3>{{user.username}}'s stuff</h3>
+                            <h3 class = "headingAgain centerText">{{user.username}}'s stuff</h3>
                             <table class="tabllee">
 
                                
@@ -143,7 +143,7 @@
                 <div class="col-8">
 
 
-                    <form class="new-post-form orangeTitle">
+                    <form class="new-post-form">
                         {{!-- <div class="row">
                             <h3 class="centerText">make post</h3>
                         </div> --}}
@@ -166,8 +166,9 @@
                             </div>
                         </div>
                     </form>
-                    <div class="card orangeTitle centerText">
-                        <h3>{{user.username}}'s blurbs</h3>
+                    
+                    <div class="card centerText">
+                        <h3 class = "orangeTitle centerText">{{user.username}}'s blurbs</h3>
 
                     <div class="aboutStuff">
 
