@@ -29,6 +29,7 @@ const sess = {
 app.use(fileUpload());
 
 // Connection Pool
+//may have to connect JAWS_DB for heroku
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: 'localhost',
@@ -74,7 +75,7 @@ app.get('/homePage', (req, res) => {
   });
 });
 
-app.post("", (req, res) => {
+app.post("/", (req, res) => {
   let file;
   let uploadPath;
   let myuuid = uuidv4();
@@ -89,6 +90,7 @@ app.post("", (req, res) => {
   console.log(file);
 
   //use mv() to place the file on the server
+  //put an if here...but if(WHAT)
   file.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
 
@@ -112,6 +114,47 @@ app.post("", (req, res) => {
     // res.send('File uploaded!');
   });
 });
+
+app.post("/background", (req, res) => {
+  let file;
+  let uploadPath;
+  let myuuid = uuidv4();
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were uploaded");
+  }
+
+  //name of the input is file
+  file = req.files.file;
+  uploadPath = __dirname + "/upload/" + myuuid;
+  console.log(file);
+
+  //use mv() to place the file on the server
+  //put an if here...but if(WHAT)
+  file.mv(uploadPath, function (err) {
+    if (err) return res.status(500).send(err);
+
+    pool.getConnection((err, connection) => {
+      if (err) throw err; // not connected
+      console.log('Connected!');
+
+      connection.query('UPDATE user SET background_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
+        // Once done, release connection
+        connection.release();
+
+        if (!err) {
+          res.redirect('/');
+        } else {
+          console.log(err);
+        }
+
+      });
+    });
+
+    // res.send('File uploaded!');
+  });
+});
+
 
 
 
