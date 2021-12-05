@@ -74,7 +74,6 @@ app.get('/homePage', (req, res) => {
 
   });
 });
-
 app.post("/", (req, res) => {
   let file;
   let uploadPath;
@@ -115,7 +114,7 @@ app.post("/", (req, res) => {
   });
 });
 
-app.post("/background", (req, res) => {
+app.post("/backgroundImage", (req, res) => {
   let file;
   let uploadPath;
   let myuuid = uuidv4();
@@ -154,6 +153,7 @@ app.post("/background", (req, res) => {
     // res.send('File uploaded!');
   });
 });
+
 
 
 
