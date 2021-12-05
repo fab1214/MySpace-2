@@ -3,6 +3,7 @@ const Post = require('./Post');
 const Comment = require('./Comment');
 const Likes = require('./Likes');
 const Dislikes = require('./Dislikes');
+const Friend_request = require('./Friend_request')
 
 User.hasMany(Post, {
     foreignKey: 'user_id'
@@ -86,5 +87,12 @@ Post.hasMany(Dislikes, {
   foreignKey: 'post_id'
 });
 
+Friend_request.belongsTo(User, {
+  foreignKey: 'sender_id'
+})
 
-module.exports = { User , Post, Likes, Dislikes, Comment };
+User.hasMany(Friend_request, {
+  foreignKey: 'reciever_id'
+})
+
+module.exports = { User , Post, Likes, Dislikes, Comment, Friend_request };

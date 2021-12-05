@@ -72,11 +72,12 @@
                                 </div>
                             </form>
                         </div>
-
+                        {{#if user.song_title}}
                         <div class="row">
                             <h4>{{user.song_title}}</h4>
                             <iframe id = 'song' src="https://www.youtube.com/embed/{{user.song_link}}"></iframe>
                         </div>
+                        {{/if}}
 {{!-- 
                         <div class="row">
                             <div class="col-1">
@@ -101,6 +102,27 @@
                         </div>
 
                     </div>
+                    {{#if user.friend_requests}}
+                    <div class="card row table">
+                        <div class="heading">
+                            {{#each user.friend_requests as |request|}}
+                            {{#if request.friend}}
+                            {{else}}
+                            <div class="row">
+                                <center>
+                                <div class="col-10">
+                                <p class="contact">{{request.first_name}} {{request.last_name}}: @{{request.username}}</p>
+                                <p class="contact">Sent you a friend request</p>
+                                <button class="btn" onclick="acceptRequest('{{request.sender_id}} {{request.id}}')">Accept</button>
+                                <button class="btn" onclick="rejectRequest('{{request.id}}')">Reject</button>
+                                </div>
+                                </center>
+                            </div>
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
 
                     <div class="card row table">
                         <div class="heading">
@@ -238,3 +260,4 @@
 <script src="/assets/js/post.js"></script>
 <script src="/assets/js/showText.js"></script>
 <script src="/assets/js/update-profile.js"></script>
+<script src="/assets/js/request.js"></script>

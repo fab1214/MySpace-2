@@ -2,7 +2,7 @@ const router = require('express').Router();
 // const { UniqueConstraintError } = require('sequelize/dist');
 // const { underscoredIf } = require('sequelize/dist/lib/utils');
 const sequelize = require('../config/connection');
-const { User, Post, Comment } = require('../Models')
+const { User, Post, Comment, Friend_request } = require('../Models')
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
@@ -18,6 +18,16 @@ router.get('/', withAuth, (req, res) => {
         model: Post,
         attributes: ["id", "title", "body", "created_at"],
       },
+      {
+        model: Friend_request,
+        attributes: [
+        'id',
+        'sender_id',
+        [sequelize.literal('(SELECT username FROM user WHERE user.id = friend_requests.sender_id)'), 'username'],
+        [sequelize.literal('(SELECT first_name FROM user WHERE user.id = friend_requests.sender_id)'), 'first_name'],
+        [sequelize.literal('(SELECT last_name FROM user WHERE user.id = friend_requests.sender_id)'), 'last_name']
+      ]
+      }
     ]
   })
   .then(dbUserData => {
@@ -141,6 +151,10 @@ router.get('/post/:id', withAuth, (req, res) => {
 });
 
 router.get('/profile/:id', withAuth, (req, res) => {
+  if(req.params.id == req.session.user_id) {
+    res.redirect('/')
+  }
+
   User.findOne({
     where: {
       id: req.params.id,
