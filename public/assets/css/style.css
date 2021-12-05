@@ -15,6 +15,13 @@ body .green{
     font-family: sans-serif;
     height: auto;
 }
+.col-4{
+    padding-left: 10%;
+    
+}
+.col-8{
+padding-right: 15%;
+}
 
 .max {
     height: 100vh;
@@ -122,14 +129,16 @@ h3 .orangeTitle{
     
     /* padding: 5%; */
     /* border-top: 5%; */
-    margin-top: 10%;
+    margin-top: 11%;
     
-    background-color: lightblue;
+    background-color: var(--skyblue);
     border: 2px solid blue;
     border: none;
     margin: none;
     padding-right: none;
-    border-bottom: 1px solid var(--grey);
+    padding-bottom: 4%;
+    margin-bottom: 6%;
+   
 }
 /* .row{
     margin: 0%;
@@ -170,8 +179,11 @@ select{
     text-align: center;
 }
 .somethingElse{
-    padding: none;
-    border-bottom: 1px solid var(--grey);
+    padding-right: none;
+    padding-left: none;
+    padding-top: 4%;
+    background-color: orange;
+    border-bottom: 1px solid var(--white);
 }
 .profPic{
     width: 50%;
@@ -182,6 +194,7 @@ select{
 }
 .col-10{
     width: 100%;
+    
 }
 .formHolder{
     padding-left: 5%;
@@ -280,9 +293,9 @@ main{
 .heading{
     padding-left:0%;
     padding-right:0%;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     
-    background-color: var(--lightblue);
+    background-color: var(--skyblue);
 }
 .headingAgain{
     padding: 1%;
@@ -305,7 +318,7 @@ th{
 td{
     border: 1px solid grey;
     padding: 1%;
-    background-color: var(--lightblue);
+    background-color: white;
 }
 
 .red {
@@ -344,6 +357,7 @@ td{
     color: var(--black);
     font-size: 25px;
     padding:none;
+    padding-top: 2%;
 }
 
 .vcenter {
@@ -374,13 +388,14 @@ ol {
 
 .post_area {
     /* width: 100%; */
-    background-color: lightblue;
+    background-color:var(--skyblue);
     padding: none;
     margin-top: 2%;
-    margin-bottom:1%;
-    border: 1px solid grey;
+    margin-bottom:4%;
+    
     
 }
+
 .update_area {
    
     width: 100%;
@@ -422,12 +437,16 @@ ol { padding-left: 0%; }
     text-align: center;
 }
 .aboutStuff{
-margin-bottom: 10%;
+margin-bottom: 5%;
 
 
+}
+.backgroundForm{
+    padding-top:3%;
+    padding-bottom:2%;
 }
 
 .card{
     background-color: var(--white);
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }

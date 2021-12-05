@@ -3,6 +3,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-4">
+                    
                     <div class=" row prof-pic-section centerText">
                         <div class="centerText somethingElse">
                             <h3>{{user.first_name}} {{user.last_name}}<h3>
@@ -59,7 +60,7 @@
                         </audio>
                         <br> --}}
                         <div class="col-10 centerText">
-                            <p>My Favorite Song</p>
+                            <h3>My Favorite Song<h3/>
                         </div>
 
                         <div class="formHolder">
@@ -90,7 +91,7 @@
                         </div> --}}
                     </div>
                     <div class="card row table">
-                        <div class="heading">
+                        <div class="heading centerText">
                             <h3>Contact {{user.username}}</h3>
                             <table class="tabllee">
 
@@ -228,7 +229,7 @@
 
                     </div> --}}
 
-           <form action='/backgroundImage' method="POST" encType="multipart/form-data">
+           <form class="backgroundForm"action='/backgroundImage' method="POST" encType="multipart/form-data">
                 <p>Select an image to set as your new background photo</p>
                 <input type='file' name='file' accept='image/*'/>
                 <button type='submit' class='btn btn-secondary'>Submit</button>
