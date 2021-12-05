@@ -6,7 +6,7 @@ const fileUpload = require("express-fileupload");
 const mysql = require('mysql2');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
-// const helpers = require('./utils/helper');
+const helpers = require('./utils/helper');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -37,7 +37,7 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME
 });
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 

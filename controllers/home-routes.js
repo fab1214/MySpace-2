@@ -101,7 +101,12 @@ router.get('/post/:id', withAuth, (req, res) => {
       'title',
       'body',
       [sequelize.literal('(SELECT username FROM user WHERE user.id = post.user_id)'), 'username'],
-      'createdAt'
+      'createdAt',
+      [sequelize.literal('(SELECT COUNT(*) FROM likes_model WHERE post.id = likes_model.post_id)'),
+      'likes_model_count'],
+      [sequelize.literal('(SELECT COUNT(*) FROM dislikes_model WHERE post.id = dislikes_model.post_id)'),
+      'dislikes_model_count'],
+
     ],
     include: [
       {
