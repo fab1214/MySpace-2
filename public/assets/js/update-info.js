@@ -24,13 +24,13 @@ async function newAboutMeHandler(event) {
 async function newInterestHandler(event) {
     // event.preventDefault();
 
-    const interest = document.querySelector('#interest').value.trim();
+    const interests = document.querySelector('#interests').value.trim();
     const id = document.querySelector('#id');
 
     const response = await fetch(`/api/users/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            interest
+            interests
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -187,7 +187,7 @@ async function newHeroHandler(event) {
 }
 // document.querySelector('.about-me-form').addEventListener('submit', newAboutMeHandler);
 // document.querySelector('.interests-form').addEventListener('submit', newInterestHandler);
-document.querySelector('.update_area').addEventListener('submit', newInterestHandler)
+// document.querySelector('.update_area').addEventListener('submit', newInterestHandler)
 $('.btn').on('click', function(){
   var parent_id = $(this);
   console.log(parent_id);
