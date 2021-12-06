@@ -33,7 +33,7 @@ app.use(fileUpload());
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'us-cdbr-east-04.cleardb.com',
+  host: 'jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   user: process.env.DB_USER,
   password: process.env.DB_PW,
   database: process.env.DB_NAME
