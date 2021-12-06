@@ -9,6 +9,7 @@ require('dotenv').config();
 const helpers = require('./utils/helper');
 
 const app = express();
+const host = '0.0.0.0';
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
@@ -159,5 +160,5 @@ app.post("/backgroundImage", (req, res) => {
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, host, () => console.log('Now listening'));
 });
