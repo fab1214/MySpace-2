@@ -109,8 +109,6 @@ app.post("/", (req, res) => {
 
       });
     });
-
-    // res.send('File uploaded!');
   });
 });
 
@@ -149,8 +147,6 @@ app.post("/backgroundImage", (req, res) => {
 
       });
     });
-
-    // res.send('File uploaded!');
   });
 });
 
