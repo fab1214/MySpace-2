@@ -30,12 +30,13 @@ app.use(fileUpload());
 
 // Connection Pool
 //may have to connect JAWS_DB for heroku
+
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'localhost',
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME
+  host: 'us-cdbr-east-04.cleardb.com',
+  user: 'bc8e4a7bb28f53',
+  password: '374d01b9',
+  database: 'heroku_80ea592cd69a1d0'
 });
 
 const hbs = exphbs.create({ helpers });
