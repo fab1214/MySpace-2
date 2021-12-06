@@ -31,7 +31,7 @@ app.use(fileUpload());
 // Connection Pool
 //may have to connect JAWS_DB for heroku
 
-const pool = mysql.createPool({
+const connection = mysql.createPool({
   connectionLimit: 10,
   host: 'us-cdbr-east-04.cleardb.com',
   user: process.env.DB_USER,
