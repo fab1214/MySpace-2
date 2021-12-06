@@ -94,9 +94,9 @@ app.post("/", (req, res) => {
   file.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
 
-    pool.getConnection((err, connection) => {
-      if (err) throw err; // not connected
-      console.log('Connected!');
+    // pool.getConnection((err, connection) => {
+    //   if (err) throw err; // not connected
+    //   console.log('Connected!');
 
       connection.query('UPDATE user SET profile_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
         // Once done, release connection
@@ -113,7 +113,6 @@ app.post("/", (req, res) => {
 
     // res.send('File uploaded!');
   });
-});
 
 app.post("/backgroundImage", (req, res) => {
   let file;
