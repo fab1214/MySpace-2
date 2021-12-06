@@ -9,7 +9,6 @@ require('dotenv').config();
 const helpers = require('./utils/helper');
 
 const app = express();
-const host = '0.0.0.0';
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
@@ -94,9 +93,9 @@ app.post("/", (req, res) => {
   file.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
 
-    // pool.getConnection((err, connection) => {
-    //   if (err) throw err; // not connected
-    //   console.log('Connected!');
+    pool.getConnection((err, connection) => {
+      if (err) throw err; // not connected
+      console.log('Connected!');
 
       connection.query('UPDATE user SET profile_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
         // Once done, release connection
@@ -113,6 +112,7 @@ app.post("/", (req, res) => {
 
     // res.send('File uploaded!');
   });
+});
 
 app.post("/backgroundImage", (req, res) => {
   let file;
@@ -133,9 +133,9 @@ app.post("/backgroundImage", (req, res) => {
   file.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
 
-    // pool.getConnection((err, connection) => {
-    //   if (err) throw err; // not connected
-    //   console.log('Connected!');
+    pool.getConnection((err, connection) => {
+      if (err) throw err; // not connected
+      console.log('Connected!');
 
       connection.query('UPDATE user SET background_image = ? WHERE id = ?', [myuuid, req.session.user_id], (err, rows) => {
         // Once done, release connection
@@ -152,12 +152,12 @@ app.post("/backgroundImage", (req, res) => {
 
     // res.send('File uploaded!');
   });
-// });
+});
 
 
 
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, host, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });
