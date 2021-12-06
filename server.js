@@ -55,10 +55,10 @@ app.use((req, res, next) => {
 app.use(require("./controllers/"));
 
 
-pool.getConnection((err, connection) => {
-  if (err) throw err; // not connected
-  console.log('Connected!');
-});
+// pool.getConnection((err, connection) => {
+//   if (err) throw err; // not connected
+//   console.log('Connected!');
+// });
 
 app.get('/homePage', (req, res) => {
   pool.getConnection((err, connection) => {
