@@ -4,6 +4,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const fileUpload = require("express-fileupload");
 const mysql = require('mysql2');
+const dbConfig = require('./config/connection');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 const helpers = require('./utils/helper');
@@ -31,12 +32,12 @@ app.use(fileUpload());
 // Connection Pool
 //may have to connect JAWS_DB for heroku
 
-const connection = mysql.createPool({
+const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'us-cdbr-east-04.cleardb.com',
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME
+  host: dbConfig.HOST,
+  user: dbConfig.USER,
+  password: dbConfig.PASSWORD,
+  database: dbConfig.DB
 });
 
 const hbs = exphbs.create({ helpers });
