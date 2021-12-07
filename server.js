@@ -35,9 +35,9 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   host: 'jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   // host: 'google.com',
-  user: 'zd2o68if2s429ttu',
-  password: 'gcpc0379wnu4y4kw',
-  database: 'pg6zw58fi16i6mx6'
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
 });
 
 const hbs = exphbs.create({ helpers });
