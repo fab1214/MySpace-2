@@ -34,9 +34,10 @@ app.use(fileUpload());
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: 'jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME
+  // host: 'google.com',
+  user: 'zd2o68if2s429ttu',
+  password: 'gcpc0379wnu4y4kw',
+  database: 'pg6zw58fi16i6mx6'
 });
 
 const hbs = exphbs.create({ helpers });
@@ -55,10 +56,10 @@ app.use((req, res, next) => {
 app.use(require("./controllers/"));
 
 
-// pool.getConnection((err, connection) => {
-//   if (err) throw err; // not connected
-//   console.log('Connected!');
-// });
+pool.getConnection((err, connection) => {
+  if (err) throw err; // not connected
+  console.log('Connected!');
+});
 
 app.get('/homePage', (req, res) => {
   pool.getConnection((err, connection) => {
