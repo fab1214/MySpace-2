@@ -1,12 +1,5 @@
 # MySpace-2
 
-## Table Of Contents
-* [Description](#description)
-* [Usage](#usage)
-* [Credit](#credit)
-* [Github](#github)
-* [License](#license)
-
 ## Description
 MySpace 2 is simply a modern remake of the classic myspace site. It has the features that made classic myspace so much fun, such as the ability to edit your background, update interests, and add music to your profile. Myspace 2 isn't interested in being a carbon copy of the site that dominated the internet in 2007. Instead, it focuses on the things that are missing from many modern websites: user personalization. Although there are more social media apps than ever before, none of the current popular apps allow users to tailor their UI and graphics to match their personal tastes. 
 
